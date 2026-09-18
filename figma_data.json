@@ -1,0 +1,685 @@
+{
+    "file_name": "Data analysis template (Community)",
+    "total_nodes": 67,
+    "nodes": [
+        {
+            "id": "0:1",
+            "name": "Page 1",
+            "type": "CANVAS"
+        },
+        {
+            "id": "3:13",
+            "name": "Frame 5",
+            "type": "FRAME",
+            "x": -870.0,
+            "y": -547.0,
+            "width": 1663.0,
+            "height": 1152.0
+        },
+        {
+            "id": "2:4",
+            "name": "Desktop - 1",
+            "type": "FRAME",
+            "x": -758.0,
+            "y": -482.0,
+            "width": 1440.0,
+            "height": 1024.0
+        },
+        {
+            "id": "2:6",
+            "name": "B ESQUERDA",
+            "type": "FRAME",
+            "x": -706.0,
+            "y": -366.0,
+            "width": 395.0,
+            "height": 282.0
+        },
+        {
+            "id": "2:11",
+            "name": "B DIREITO",
+            "type": "FRAME",
+            "x": 236.0,
+            "y": -366.0,
+            "width": 395.0,
+            "height": 282.0
+        },
+        {
+            "id": "2:9",
+            "name": "B MEIO",
+            "type": "FRAME",
+            "x": -235.0,
+            "y": -366.0,
+            "width": 395.0,
+            "height": 282.0
+        },
+        {
+            "id": "2:12",
+            "name": "grafico",
+            "type": "FRAME",
+            "x": -708.0,
+            "y": 6.0,
+            "width": 1337.0,
+            "height": 459.0
+        },
+        {
+            "id": "4:14",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": -588.0,
+            "y": 40.0,
+            "width": 1166.0,
+            "height": 361.0
+        },
+        {
+            "id": "4:54",
+            "name": "Sun Mon Tue Wed Thu Fri Sat",
+            "type": "TEXT",
+            "x": -618.0,
+            "y": 431.0,
+            "width": 1438.0,
+            "height": 34.0,
+            "text": "Sun Mon Tue Wed Thu Fri Sat",
+            "font_family": "Khula",
+            "font_size": 32.0,
+            "font_weight": 600
+        },
+        {
+            "id": "4:65",
+            "name": "0",
+            "type": "TEXT",
+            "x": -642.0,
+            "y": 385.0,
+            "width": 54.0,
+            "height": 43.0,
+            "text": "0",
+            "font_family": "Khula",
+            "font_size": 32.0,
+            "font_weight": 400
+        },
+        {
+            "id": "4:66",
+            "name": "50",
+            "type": "TEXT",
+            "x": -650.0,
+            "y": 236.0,
+            "width": 54.0,
+            "height": 43.0,
+            "text": "50",
+            "font_family": "Khula",
+            "font_size": 32.0,
+            "font_weight": 400
+        },
+        {
+            "id": "4:67",
+            "name": "100",
+            "type": "TEXT",
+            "x": -672.0,
+            "y": 53.0,
+            "width": 54.0,
+            "height": 43.0,
+            "text": "100",
+            "font_family": "Khula",
+            "font_size": 32.0,
+            "font_weight": 400
+        },
+        {
+            "id": "4:68",
+            "name": "Line 1",
+            "type": "LINE",
+            "x": -615.0,
+            "y": 248.0,
+            "width": 1199.00048828125,
+            "height": 0.0
+        },
+        {
+            "id": "4:72",
+            "name": "Line 3",
+            "type": "LINE",
+            "x": -615.0,
+            "y": 398.0,
+            "width": 1199.00048828125,
+            "height": 0.0
+        },
+        {
+            "id": "4:71",
+            "name": "Line 2",
+            "type": "LINE",
+            "x": -615.0,
+            "y": 64.0,
+            "width": 1199.00048828125,
+            "height": 0.0
+        },
+        {
+            "id": "3:15",
+            "name": "LOGO",
+            "type": "TEXT",
+            "x": -702.0,
+            "y": -462.0,
+            "width": 104.0,
+            "height": 65.0,
+            "text": "LOGO",
+            "font_family": "Khula",
+            "font_size": 40.0,
+            "font_weight": 600
+        },
+        {
+            "id": "4:5",
+            "name": "NEW MESSAGES",
+            "type": "TEXT",
+            "x": -669.0,
+            "y": -343.0,
+            "width": 285.0,
+            "height": 52.0,
+            "text": "NEW MESSAGES",
+            "font_family": "Khula",
+            "font_size": 32.0,
+            "font_weight": 400
+        },
+        {
+            "id": "4:6",
+            "name": "NEW LEADS",
+            "type": "TEXT",
+            "x": -203.0,
+            "y": -343.0,
+            "width": 285.0,
+            "height": 52.0,
+            "text": "NEW LEADS",
+            "font_family": "Khula",
+            "font_size": 32.0,
+            "font_weight": 400
+        },
+        {
+            "id": "4:7",
+            "name": "RETURN (ROI)",
+            "type": "TEXT",
+            "x": 268.0,
+            "y": -343.0,
+            "width": 181.0,
+            "height": 52.0,
+            "text": "RETURN (ROI) ",
+            "font_family": "Khula",
+            "font_size": 32.0,
+            "font_weight": 400
+        },
+        {
+            "id": "4:8",
+            "name": "58",
+            "type": "TEXT",
+            "x": -669.0,
+            "y": -322.0,
+            "width": 102.0,
+            "height": 156.0,
+            "text": "58",
+            "font_family": "Khula",
+            "font_size": 96.0,
+            "font_weight": 600
+        },
+        {
+            "id": "4:9",
+            "name": "36",
+            "type": "TEXT",
+            "x": -203.0,
+            "y": -319.0,
+            "width": 102.0,
+            "height": 156.0,
+            "text": "36",
+            "font_family": "Khula",
+            "font_size": 96.0,
+            "font_weight": 600
+        },
+        {
+            "id": "4:10",
+            "name": "62",
+            "type": "TEXT",
+            "x": 271.0,
+            "y": -322.0,
+            "width": 102.0,
+            "height": 156.0,
+            "text": "62",
+            "font_family": "Khula",
+            "font_size": 96.0,
+            "font_weight": 600
+        },
+        {
+            "id": "4:20",
+            "name": "🦆 icon \"mail\"",
+            "type": "GROUP",
+            "x": -392.0,
+            "y": -334.0,
+            "width": 34.714324951171875,
+            "height": 27.0
+        },
+        {
+            "id": "4:19",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": -392.0,
+            "y": -334.0,
+            "width": 34.714324951171875,
+            "height": 27.0
+        },
+        {
+            "id": "4:45",
+            "name": "🦆 icon \"presentation chart bar\"",
+            "type": "GROUP",
+            "x": 83.0,
+            "y": -338.0,
+            "width": 37.05881881713867,
+            "height": 35.0
+        },
+        {
+            "id": "4:44",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": 83.0,
+            "y": -338.0,
+            "width": 37.05881881713867,
+            "height": 35.0
+        },
+        {
+            "id": "4:51",
+            "name": "🦆 icon \"currency dollar\"",
+            "type": "GROUP",
+            "x": 550.0,
+            "y": -345.0,
+            "width": 42.0,
+            "height": 42.0
+        },
+        {
+            "id": "4:47",
+            "name": "Group",
+            "type": "GROUP",
+            "x": 550.0,
+            "y": -345.0,
+            "width": 42.0,
+            "height": 42.0
+        },
+        {
+            "id": "4:48",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": 565.75,
+            "y": -331.4786071777344,
+            "width": 2.625025987625122,
+            "height": 4.457197189331055
+        },
+        {
+            "id": "4:49",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": 573.6250610351562,
+            "y": -320.9786071777344,
+            "width": 2.625,
+            "height": 4.457250595092773
+        },
+        {
+            "id": "4:50",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": 550.0,
+            "y": -345.0,
+            "width": 42.0,
+            "height": 42.0
+        },
+        {
+            "id": "4:73",
+            "name": "MY ACCOUNT",
+            "type": "TEXT",
+            "x": 336.0,
+            "y": -448.0,
+            "width": 206.0,
+            "height": 46.0,
+            "text": "MY ACCOUNT",
+            "font_family": "Khula",
+            "font_size": 32.0,
+            "font_weight": 400
+        },
+        {
+            "id": "4:79",
+            "name": "🦆 icon \"menu\"",
+            "type": "GROUP",
+            "x": 578.0,
+            "y": -449.0,
+            "width": 45.49999237060547,
+            "height": 39.0
+        },
+        {
+            "id": "4:75",
+            "name": "Group",
+            "type": "GROUP",
+            "x": 578.0,
+            "y": -449.0,
+            "width": 45.49999237060547,
+            "height": 39.0
+        },
+        {
+            "id": "4:76",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": 578.0,
+            "y": -449.0,
+            "width": 45.49999237060547,
+            "height": 6.500000953674316
+        },
+        {
+            "id": "4:77",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": 578.0,
+            "y": -432.74993896484375,
+            "width": 45.49999237060547,
+            "height": 6.500000953674316
+        },
+        {
+            "id": "4:78",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": 578.0,
+            "y": -416.5000915527344,
+            "width": 45.49999237060547,
+            "height": 6.500000953674316
+        },
+        {
+            "id": "4:80",
+            "name": "RESPONSE RATE",
+            "type": "TEXT",
+            "x": -661.0,
+            "y": -156.0,
+            "width": 170.0,
+            "height": 45.0,
+            "text": "RESPONSE RATE",
+            "font_family": "Khula",
+            "font_size": 24.0,
+            "font_weight": 800
+        },
+        {
+            "id": "4:82",
+            "name": "RETURN ON INVESTMENT (ROI)",
+            "type": "TEXT",
+            "x": 268.0,
+            "y": -159.0,
+            "width": 261.0,
+            "height": 33.0,
+            "text": "RETURN ON INVESTMENT (ROI)",
+            "font_family": "Khula",
+            "font_size": 20.0,
+            "font_weight": 800
+        },
+        {
+            "id": "15:4",
+            "name": "Group",
+            "type": "GROUP",
+            "x": -15.0,
+            "y": -270.0,
+            "width": 144.0,
+            "height": 144.0
+        },
+        {
+            "id": "15:2",
+            "name": "62 (62%)",
+            "type": "ELLIPSE",
+            "x": -15.0,
+            "y": -270.0,
+            "width": 144.0,
+            "height": 144.0
+        },
+        {
+            "id": "15:3",
+            "name": "38 (38%)",
+            "type": "ELLIPSE",
+            "x": -15.0,
+            "y": -270.0,
+            "width": 144.0,
+            "height": 144.0
+        },
+        {
+            "id": "15:11",
+            "name": "62% DAILY GOAL",
+            "type": "TEXT",
+            "x": -203.0,
+            "y": -179.0,
+            "width": 160.0,
+            "height": 33.0,
+            "text": "62% DAILY GOAL ",
+            "font_family": "Khula",
+            "font_size": 20.0,
+            "font_weight": 600
+        },
+        {
+            "id": "15:13",
+            "name": "38% THIS WEEK",
+            "type": "TEXT",
+            "x": -203.0,
+            "y": -156.0,
+            "width": 151.0,
+            "height": 33.0,
+            "text": "38% THIS WEEK ",
+            "font_family": "Khula",
+            "font_size": 20.0,
+            "font_weight": 600
+        },
+        {
+            "id": "25:3",
+            "name": "Line 4",
+            "type": "VECTOR",
+            "x": -681.0,
+            "y": -179.0,
+            "width": 345.0,
+            "height": 0.0
+        },
+        {
+            "id": "25:9",
+            "name": "Line 6",
+            "type": "VECTOR",
+            "x": 261.0,
+            "y": -179.0,
+            "width": 345.0,
+            "height": 0.0
+        },
+        {
+            "id": "25:6",
+            "name": "Line 5",
+            "type": "VECTOR",
+            "x": -551.0,
+            "y": -179.0,
+            "width": 215.0,
+            "height": 0.0
+        },
+        {
+            "id": "25:10",
+            "name": "Line 7",
+            "type": "VECTOR",
+            "x": 463.0,
+            "y": -179.0,
+            "width": 141.0,
+            "height": 0.0
+        },
+        {
+            "id": "25:11",
+            "name": "Rectangle 2",
+            "type": "RECTANGLE",
+            "x": -569.0,
+            "y": -209.0,
+            "width": 37.0,
+            "height": 21.0
+        },
+        {
+            "id": "25:14",
+            "name": "Rectangle 3",
+            "type": "RECTANGLE",
+            "x": 444.0,
+            "y": -208.0,
+            "width": 37.0,
+            "height": 21.0
+        },
+        {
+            "id": "25:13",
+            "name": "36%",
+            "type": "TEXT",
+            "x": -563.0,
+            "y": -206.0,
+            "width": 25.0,
+            "height": 15.0,
+            "text": "36%",
+            "font_family": "Inter",
+            "font_size": 12.0,
+            "font_weight": 400
+        },
+        {
+            "id": "25:15",
+            "name": "62%",
+            "type": "TEXT",
+            "x": 450.0,
+            "y": -205.0,
+            "width": 25.0,
+            "height": 15.0,
+            "text": "62%",
+            "font_family": "Inter",
+            "font_size": 12.0,
+            "font_weight": 400
+        },
+        {
+            "id": "25:16",
+            "name": "%",
+            "type": "TEXT",
+            "x": 373.0,
+            "y": -244.0,
+            "width": 13.0,
+            "height": 24.0,
+            "text": "%",
+            "font_family": "Khula",
+            "font_size": 15.0,
+            "font_weight": 600
+        },
+        {
+            "id": "3:14",
+            "name": "Rectangle 1",
+            "type": "RECTANGLE",
+            "x": -358.0,
+            "y": 497.0,
+            "width": 640.0,
+            "height": 89.0
+        },
+        {
+            "id": "4:42",
+            "name": "🦆 icon \"chart pie\"",
+            "type": "GROUP",
+            "x": -59.0,
+            "y": 521.0,
+            "width": 43.0,
+            "height": 42.999916076660156
+        },
+        {
+            "id": "4:39",
+            "name": "Group",
+            "type": "GROUP",
+            "x": -59.0,
+            "y": 521.0,
+            "width": 43.0,
+            "height": 42.999916076660156
+        },
+        {
+            "id": "4:40",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": -59.0,
+            "y": 521.0,
+            "width": 43.0,
+            "height": 42.999916076660156
+        },
+        {
+            "id": "4:41",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": -30.2456111907959,
+            "y": 522.095947265625,
+            "width": 13.149855613708496,
+            "height": 13.149611473083496
+        },
+        {
+            "id": "4:34",
+            "name": "🦆 icon \"presentation chart line\"",
+            "type": "GROUP",
+            "x": -172.0,
+            "y": 522.0,
+            "width": 44.4705924987793,
+            "height": 42.0
+        },
+        {
+            "id": "4:33",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": -172.0,
+            "y": 522.0,
+            "width": 44.4705924987793,
+            "height": 42.0
+        },
+        {
+            "id": "4:31",
+            "name": "🦆 icon \"calculator\"",
+            "type": "GROUP",
+            "x": 175.0,
+            "y": 521.0,
+            "width": 32.66667175292969,
+            "height": 42.0
+        },
+        {
+            "id": "4:30",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": 175.0,
+            "y": 521.0,
+            "width": 32.66667175292969,
+            "height": 42.0
+        },
+        {
+            "id": "4:28",
+            "name": "🦆 icon \"newspaper\"",
+            "type": "GROUP",
+            "x": -283.0,
+            "y": 523.0,
+            "width": 42.0113525390625,
+            "height": 37.343421936035156
+        },
+        {
+            "id": "4:27",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": -283.0,
+            "y": 523.0,
+            "width": 42.0113525390625,
+            "height": 37.343421936035156
+        },
+        {
+            "id": "4:37",
+            "name": "🦆 icon \"collection\"",
+            "type": "GROUP",
+            "x": 64.0,
+            "y": 523.0,
+            "width": 37.0,
+            "height": 37.0
+        },
+        {
+            "id": "4:36",
+            "name": "Vector",
+            "type": "VECTOR",
+            "x": 64.0,
+            "y": 523.0,
+            "width": 37.0,
+            "height": 37.0
+        },
+        {
+            "id": "25:5",
+            "name": "Breakpoints",
+            "type": "TEXT",
+            "x": -111.00708770751953,
+            "y": -56.65346145629883,
+            "width": 68.0,
+            "height": 15.0,
+            "text": "Breakpoints",
+            "font_family": "Inter",
+            "font_size": 12.0,
+            "font_weight": 400
+        }
+    ]
+}

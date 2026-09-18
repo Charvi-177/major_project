@@ -1,0 +1,127 @@
+{
+  "dashboard": "unnamed",
+  "components": [
+    {
+      "id": "15:4",
+      "type": "unknown",
+      "confidence": 0.0,
+      "label": "Group",
+      "position": {
+        "x": -15.0,
+        "y": -270.0,
+        "width": 144.0,
+        "height": 144.0
+      },
+      "data_binding": null,
+      "raw_text_content": []
+    },
+    {
+      "id": "3:14",
+      "type": "chart",
+      "confidence": 0.75,
+      "label": "Rectangle 1",
+      "position": {
+        "x": -358.0,
+        "y": 497.0,
+        "width": 640.0,
+        "height": 89.0
+      },
+      "data_binding": null,
+      "raw_text_content": []
+    },
+    {
+      "id": "2:6",
+      "type": "table",
+      "confidence": 0.8,
+      "label": "NEW MESSAGES",
+      "position": {
+        "x": -706.0,
+        "y": -366.0,
+        "width": 395.0,
+        "height": 282.0
+      },
+      "data_binding": null,
+      "raw_text_content": [
+        "NEW MESSAGES",
+        "58",
+        "RESPONSE RATE",
+        "36%"
+      ]
+    },
+    {
+      "id": "2:11",
+      "type": "table",
+      "confidence": 0.8,
+      "label": "RETURN (ROI)",
+      "position": {
+        "x": 236.0,
+        "y": -366.0,
+        "width": 395.0,
+        "height": 282.0
+      },
+      "data_binding": null,
+      "raw_text_content": [
+        "RETURN (ROI)",
+        "62",
+        "RETURN ON INVESTMENT (ROI)",
+        "62%",
+        "%"
+      ]
+    },
+    {
+      "id": "2:9",
+      "type": "unknown",
+      "confidence": 0.0,
+      "label": "NEW LEADS",
+      "position": {
+        "x": -235.0,
+        "y": -366.0,
+        "width": 395.0,
+        "height": 282.0
+      },
+      "data_binding": null,
+      "raw_text_content": [
+        "NEW LEADS",
+        "36",
+        "62% DAILY GOAL",
+        "38% THIS WEEK"
+      ]
+    },
+    {
+      "id": "2:12",
+      "type": "table",
+      "confidence": 0.8,
+      "label": "0",
+      "position": {
+        "x": -708.0,
+        "y": 6.0,
+        "width": 1337.0,
+        "height": 459.0
+      },
+      "data_binding": null,
+      "raw_text_content": [
+        "0",
+        "50",
+        "100"
+      ]
+    },
+    {
+      "id": "2:4",
+      "type": "table",
+      "confidence": 0.8,
+      "label": "LOGO",
+      "position": {
+        "x": -758.0,
+        "y": -482.0,
+        "width": 1440.0,
+        "height": 1024.0
+      },
+      "data_binding": null,
+      "raw_text_content": [
+        "LOGO",
+        "MY ACCOUNT",
+        "Breakpoints"
+      ]
+    }
+  ]
+}
