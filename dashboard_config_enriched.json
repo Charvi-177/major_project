@@ -1,9 +1,7 @@
 {
-  "dashboard": "MedPulse Clinical Operations",
-  "source": {
-    "type": "figma",
-    "node_count": 366
-  },
+  "dashboard_name": "MedPulse",
+  "dashboard_title": "Clinical Operations",
+  "description": "Real-time hospital capacity and performance monitor.",
   "components": [
     {
       "id": "12:43",
@@ -299,6 +297,29 @@
         "Oct",
         "Nov",
         "Dec"
+      ],
+      "chart_type": "line",
+      "description": "12-Month trend of emergency vs inpatient admissions",
+      "x_axis": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "y_axis": [
+        0,
+        150,
+        300,
+        450,
+        600
       ]
     },
     {
@@ -439,7 +460,8 @@
         "legend-left",
         "65+ Years",
         "9%"
-      ]
+      ],
+      "section_type": "patient_demographics"
     },
     {
       "id": "12:290",
@@ -456,6 +478,14 @@
       "raw_text_content": [
         "Recent Patient Activities",
         "Live admissions log with surgical and emergency updates"
+      ],
+      "table_type": "patient_activity",
+      "columns": [
+        "Patient Name",
+        "Department",
+        "Attending Doctor",
+        "Status",
+        "Admit Date"
       ]
     }
   ]
