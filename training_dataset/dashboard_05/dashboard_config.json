@@ -1,0 +1,91 @@
+{
+  "dashboard": "dashboard_05",
+  "total_nodes": 1003,
+  "detected_components": 5,
+  "components": [
+    {
+      "id": "25:5054",
+      "type": "kpi_card",
+      "name": "Patients",
+      "label": "Patients",
+      "confidence": 0.9,
+      "position": {
+        "x": 0,
+        "y": 244,
+        "width": 100,
+        "height": 38
+      },
+      "data_binding": {
+        "label": "Patients",
+        "value": null
+      }
+    },
+    {
+      "id": "52:2637",
+      "type": "kpi_card",
+      "name": "Patients",
+      "label": "Patients",
+      "confidence": 0.9,
+      "position": {
+        "x": 0,
+        "y": 244,
+        "width": 100,
+        "height": 38
+      },
+      "data_binding": {
+        "label": "Patients",
+        "value": null
+      }
+    },
+    {
+      "id": "42:1635",
+      "type": "chart",
+      "name": "Chart",
+      "label": "Chart",
+      "confidence": 0.95,
+      "position": {
+        "x": 451.3351135253906,
+        "y": 269,
+        "width": 193.33511352539062,
+        "height": 197.00003051757812
+      },
+      "data_binding": {
+        "texts": []
+      }
+    },
+    {
+      "id": "52:2813",
+      "type": "kpi_card",
+      "name": "Status",
+      "label": "Status",
+      "confidence": 0.95,
+      "position": {
+        "x": 1087,
+        "y": 270,
+        "width": 109,
+        "height": 28
+      },
+      "data_binding": {
+        "label": "Status",
+        "value": null
+      }
+    },
+    {
+      "id": "45:821",
+      "type": "kpi_card",
+      "name": "Status",
+      "label": "Status",
+      "confidence": 0.95,
+      "position": {
+        "x": 1087,
+        "y": 668,
+        "width": 109,
+        "height": 28
+      },
+      "data_binding": {
+        "label": "Status",
+        "value": null
+      }
+    }
+  ]
+}

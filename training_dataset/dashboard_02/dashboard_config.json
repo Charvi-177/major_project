@@ -1,0 +1,148 @@
+{
+  "dashboard": "dashboard_02",
+  "total_nodes": 327,
+  "detected_components": 8,
+  "components": [
+    {
+      "id": "42:195",
+      "type": "chart",
+      "name": "Graph",
+      "label": "Graph",
+      "confidence": 0.95,
+      "position": {
+        "x": 65,
+        "y": 107,
+        "width": 654.5,
+        "height": 156.99996948242188
+      },
+      "data_binding": {
+        "texts": []
+      }
+    },
+    {
+      "id": "42:106",
+      "type": "kpi_card",
+      "name": "Total Doctor",
+      "label": "Total Doctor",
+      "confidence": 0.95,
+      "position": {
+        "x": 286,
+        "y": 131,
+        "width": 162,
+        "height": 99
+      },
+      "data_binding": {
+        "label": "Total Doctor",
+        "value": "2.414"
+      }
+    },
+    {
+      "id": "42:119",
+      "type": "kpi_card",
+      "name": "Total Staff",
+      "label": "Total Staff",
+      "confidence": 0.95,
+      "position": {
+        "x": 478,
+        "y": 131,
+        "width": 162,
+        "height": 99
+      },
+      "data_binding": {
+        "label": "Total Staff",
+        "value": "2.414"
+      }
+    },
+    {
+      "id": "42:135",
+      "type": "kpi_card",
+      "name": "Total Patient",
+      "label": "Total Patient",
+      "confidence": 0.95,
+      "position": {
+        "x": 670,
+        "y": 131,
+        "width": 162,
+        "height": 99
+      },
+      "data_binding": {
+        "label": "Total Patient",
+        "value": "2.414"
+      }
+    },
+    {
+      "id": "42:147",
+      "type": "kpi_card",
+      "name": "New Appointment",
+      "label": "New Appointment",
+      "confidence": 0.95,
+      "position": {
+        "x": 862,
+        "y": 131,
+        "width": 162,
+        "height": 99
+      },
+      "data_binding": {
+        "label": "New Appointment",
+        "value": "2.414"
+      }
+    },
+    {
+      "id": "42:210",
+      "type": "section",
+      "name": "Schedule",
+      "label": "Schedule",
+      "confidence": 0.82,
+      "position": {
+        "x": 1054,
+        "y": 131,
+        "width": 354,
+        "height": 853
+      },
+      "data_binding": {}
+    },
+    {
+      "id": "42:196",
+      "type": "chart",
+      "name": "Graph",
+      "label": "Graph",
+      "confidence": 0.95,
+      "position": {
+        "x": 65,
+        "y": 143,
+        "width": 654.5,
+        "height": 129.99998474121094
+      },
+      "data_binding": {
+        "texts": []
+      }
+    },
+    {
+      "id": "42:289",
+      "type": "table",
+      "name": "Patient Data",
+      "label": "Patient Data",
+      "confidence": 0.95,
+      "position": {
+        "x": 284,
+        "y": 648,
+        "width": 738,
+        "height": 336
+      },
+      "data_binding": {
+        "columns": [
+          "Confirmed",
+          "Quit smoking",
+          "Dec 18, 2021",
+          "Bessie Cooper",
+          "Cancelled",
+          "Contraceptives",
+          "Dec 18, 2021",
+          "Ronald Richards",
+          "Confirmed",
+          "Nail problems"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "dashboard": "dashboard_04",
+  "total_nodes": 993,
+  "detected_components": 3,
+  "components": [
+    {
+      "id": "1:909",
+      "type": "table",
+      "name": "Table",
+      "label": "Last seen 7:45 PM",
+      "confidence": 0.95,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 1030
+      },
+      "data_binding": {
+        "columns": [
+          "9",
+          "4",
+          "8",
+          "5",
+          "Last seen 7:45 PM",
+          "Physiotherapist",
+          "Anjelina Cardella",
+          "Last seen 3:31 PM",
+          "Compounder",
+          "Jeff Adam"
+        ]
+      }
+    },
+    {
+      "id": "1:209",
+      "type": "table",
+      "name": "Table",
+      "label": "20",
+      "confidence": 0.95,
+      "position": {
+        "x": 565.828125,
+        "y": 10,
+        "width": 534.328125,
+        "height": 448.5
+      },
+      "data_binding": {
+        "columns": [
+          "0",
+          "20",
+          "40",
+          "60",
+          "80",
+          "100",
+          "14",
+          "21",
+          "15",
+          "15"
+        ]
+      }
+    },
+    {
+      "id": "1:493",
+      "type": "table",
+      "name": "Table",
+      "label": "108",
+      "confidence": 0.95,
+      "position": {
+        "x": 0,
+        "y": 44.296875,
+        "width": 1595,
+        "height": 392
+      },
+      "data_binding": {
+        "columns": [
+          "",
+          "",
+          "108",
+          "Malaria",
+          "17/05/2016",
+          "Dr.Sharma",
+          "Sue Woodger",
+          "8",
+          "",
+          ""
+        ]
+      }
+    }
+  ]
+}
