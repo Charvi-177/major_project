@@ -1,1168 +1,319 @@
 import json
 import os
 import re
+from collections import defaultdict
 
-
-# ============================================================
-# PATHS
-# ============================================================
-
-BASE_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..")
-)
-
-DASHBOARDS_DIR = os.path.join(
-    BASE_DIR,
-    "dataset",
-    "dashboards"
-)
-
-OUTPUT_DIR = os.path.join(
-    BASE_DIR,
-    "dataset",
-    "candidates"
-)
-
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+DASHBOARDS_DIR = os.path.join(BASE_DIR, "dataset", "dashboards")
+OUTPUT_DIR = os.path.join(BASE_DIR, "dataset", "candidates")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+CONTAINER_TYPES = {"FRAME", "COMPONENT", "COMPONENT_SET", "INSTANCE", "GROUP", "SECTION"}
 
-# ============================================================
-# BASIC HELPERS
-# ============================================================
+ROOT_NAMES = {
+    "page 1", "page 2", "dashboard", "healthcare dashboard", "health dashboard",
+    "medical dashboard", "medical dashboard design",
+    "01 dashboard landing page", "01 dashboard - landing page",
+    "13 configurations", "additional dashboard components light theme",
+}
 
-def normalize_name(name):
-    """
-    Normalize Figma node names for easier matching.
-    """
-    if not name:
-        return ""
+INTERNAL_NAMES = {
+    "chart", "bars", "bar", "points", "map", "legend", "plot area",
+    "grid lines", "grid line", "x axis", "y axis", "axis", "axes",
+    "table header", "table header title", "table body", "table footer",
+    "pagination", "table pagination", "dept list", "department list",
+    "demographics body", "demographics legend", "nav list", "navigation list",
+    "sidebar footer", "sidebar header",
+}
 
-    name = str(name).lower().strip()
-    name = re.sub(r"[_\-]+", " ", name)
-    name = re.sub(r"\s+", " ", name)
+INTERNAL_WORDS = (
+    "grid line", "plot area", "axis", "legend", "pagination",
+    "table header", "table body", "table footer", "mask group",
+)
 
-    return name
+UI_WORDS = (
+    "sidebar", "side nav", "navigation", "navbar", "topbar", "logo",
+    "notification icon", "search bar", "settings", "log out", "logout",
+    "support", "technical help", "download report", "language",
+    "application settings", "contact management", "chat with visitors",
+)
 
+SEMANTIC_WORDS = (
+    "kpi", "metric", "patient", "patients", "doctor", "doctors",
+    "appointment", "appointments", "admission", "admissions", "revenue",
+    "payment", "payments", "inventory", "pharmacy", "medicine", "medicines",
+    "customer", "customers", "diagnostic", "diagnostics", "health index",
+    "causes range", "overview", "statistics", "analytics", "performance",
+    "demographics", "gender", "survey", "report", "reports", "activity",
+    "activities", "schedule", "calendar", "table", "chart", "graph",
+    "surgery", "surgeries", "covid", "disease", "symptom",
+)
+
+NUMBER_RE = re.compile(r"^[\$₹€£]?\s*[\d,.]+\s*%?\s*[KkMmBb]?$")
+DATE_RE = re.compile(
+    r"\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\b"
+    r"|\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b"
+)
+
+def norm(value):
+    value = str(value or "").lower().strip()
+    value = re.sub(r"[_-]+", " ", value)
+    return re.sub(r"\s+", " ", value)
 
 def is_container(node):
-    """
-    Nodes that can contain dashboard components.
-    """
-    return node.get("type") in {
-        "FRAME",
-        "COMPONENT",
-        "COMPONENT_SET",
-        "INSTANCE",
-        "GROUP",
-        "SECTION"
+    return node.get("type") in CONTAINER_TYPES
+
+def is_internal(node):
+    name = norm(node.get("name"))
+    return (
+        name in INTERNAL_NAMES
+        or name.startswith("row ")
+        or any(word in name for word in INTERNAL_WORDS)
+    )
+
+def is_ui(node):
+    name = norm(node.get("name"))
+    return (
+        name in UI_WORDS
+        or any(name.startswith(w + " ") for w in UI_WORDS)
+        or "sidebar" in name
+        or "side nav" in name
+    )
+
+def make_maps(nodes):
+    node_map = {n["id"]: n for n in nodes if n.get("id")}
+    children = defaultdict(list)
+    for n in nodes:
+        p = n.get("parent_id")
+        if p in node_map:
+            children[p].append(n["id"])
+    return node_map, children
+
+def descendants(node_id, children):
+    out = []
+    stack = list(children.get(node_id, []))
+    while stack:
+        cid = stack.pop()
+        out.append(cid)
+        stack.extend(children.get(cid, []))
+    return out
+
+def stats(node_id, node_map, children):
+    ids = descendants(node_id, children)
+    all_nodes = [node_map[i] for i in ids]
+    texts = [
+        str(n.get("text", "")).strip()
+        for n in all_nodes if n.get("type") == "TEXT" and str(n.get("text", "")).strip()
+    ]
+    direct = [node_map[i] for i in children.get(node_id, [])]
+    numeric = [t for t in texts if NUMBER_RE.match(t) or re.search(r"\d", t)]
+    vectors = sum(n.get("type") == "VECTOR" for n in all_nodes)
+    lines = sum(n.get("type") == "LINE" for n in all_nodes)
+    ellipses = sum(n.get("type") == "ELLIPSE" for n in all_nodes)
+    rectangles = sum(n.get("type") == "RECTANGLE" for n in all_nodes)
+    width = float(node_map[node_id].get("width") or 0)
+    height = float(node_map[node_id].get("height") or 0)
+    return {
+        "texts": texts,
+        "text_count": len(texts),
+        "numeric_count": len(numeric),
+        "date_count": sum(bool(DATE_RE.search(t.lower())) for t in texts),
+        "vector_count": vectors,
+        "line_count": lines,
+        "ellipse_count": ellipses,
+        "rectangle_count": rectangles,
+        "graphic_count": vectors + lines + ellipses + rectangles,
+        "direct_count": len(direct),
+        "direct_container_count": sum(is_container(n) for n in direct),
+        "descendant_count": len(all_nodes),
+        "width": width,
+        "height": height,
+        "area": width * height,
+        "aspect_ratio": width / height if height else 0,
     }
 
-
-def is_root_or_layout(node):
-    """
-    Remove dashboard/page/layout wrappers.
-    """
-    name = normalize_name(node.get("name"))
-
-    layout_patterns = [
-        "healthcare dashboard",
-        "health dashboard",
-        "medical dashboard",
-        "dashboard",
-        "main content",
-        "content area",
-        "dashboard content",
-        "page",
-        "sidebar",
-        "side bar",
-        "header",
-        "footer",
-        "navigation",
-        "navbar",
-        "nav bar",
-        "menu",
-        "topbar",
-        "top bar",
-    ]
-
-    for pattern in layout_patterns:
-        if name == pattern:
-            return True
-
-    return False
-
-
-# ============================================================
-# INTERNAL COMPONENT DETECTION
-# ============================================================
-
-def is_internal_component(node):
-    """
-    Detect nodes that are normally internal pieces of a
-    larger dashboard component.
-
-    Examples:
-        grid-lines
-        plot-area
-        axis
-        legend
-        table-header
-        table-header-title
-        row-xxx
-        demographics-body
-        dept-list
-        nav-list
-    """
-
-    name = normalize_name(node.get("name"))
-
-    internal_patterns = [
-
-        # -----------------------------
-        # Chart internals
-        # -----------------------------
-        "grid lines",
-        "grid line",
-        "plot area",
-        "plot-area",
-        "chart and y axis",
-        "chart with axes",
-        "y axis",
-        "x axis",
-        "axis",
-        "axes",
-        "chart line",
-        "chart lines",
-        "chart body",
-        "chart content",
-
-        # -----------------------------
-        # Chart legends
-        # -----------------------------
-        "legend",
-        "legend item",
-        "legend items",
-
-        # -----------------------------
-        # Table internals
-        # -----------------------------
-        "table header",
-        "table header title",
-        "header title",
-        "table body",
-        "table footer",
-        "table pagination",
-        "pagination",
-        "table row",
-        "table column",
-        "column header",
-
-        # -----------------------------
-        # Card internals
-        # -----------------------------
-        "card body",
-        "card header",
-        "card footer",
-        "card content",
-
-        # -----------------------------
-        # Department internals
-        # -----------------------------
-        "dept list",
-        "department list",
-        "department body",
-        "department content",
-
-        # -----------------------------
-        # Demographics internals
-        # -----------------------------
-        "demographics body",
-        "demographics content",
-        "demographics legend",
-
-        # -----------------------------
-        # Navigation
-        # -----------------------------
-        "nav list",
-        "navigation list",
-        "sidebar footer",
-        "sidebar header",
-
-        # -----------------------------
-        # Generic layout internals
-        # -----------------------------
-        "content",
-        "body",
-        "inner",
-        "inner content",
-        "inner container",
-    ]
-
-    for pattern in internal_patterns:
-        if pattern in name:
-            return True
-
-    # Repeated activity/table rows such as:
-    # row-eleanor-vance
-    # row-marcus-sterling
-    # row-thomas-miller
-    if name.startswith("row "):
+def looks_like_layout_wrapper(node, info):
+    name = norm(node.get("name"))
+    if name in ROOT_NAMES:
         return True
-
-    # Common wrapper rows
-    wrapper_names = {
-        "kpis row",
-        "split row",
-        "main row",
-        "content row",
-        "dashboard row",
-        "top row",
-        "bottom row",
-    }
-
-    if name in wrapper_names:
+    if name in {
+        "main content", "content area", "dashboard content", "kpis row",
+        "split row", "main row", "content row", "dashboard row", "top row", "bottom row"
+    }:
         return True
-
-    return False
-
-
-# ============================================================
-# SIDEBAR / UI ELEMENT DETECTION
-# ============================================================
-
-def is_navigation_or_sidebar(node):
-    """
-    Remove navigation/sidebar UI elements.
-
-    These are not report/dashboard data components.
-    """
-
-    name = normalize_name(node.get("name"))
-
-    navigation_patterns = [
-        "nav",
-        "navigation",
-        "sidebar",
-        "side bar",
-        "menu",
-        "profile",
-        "user profile",
-        "settings",
-        "logout",
-        "log out",
-        "support",
-        "help",
-        "logo",
-        "brand",
-    ]
-
-    # Exact / partial semantic names
-    for pattern in navigation_patterns:
-
-        if name == pattern:
-            return True
-
-        if name.startswith(pattern + " "):
-            return True
-
-        if name.endswith(" " + pattern):
-            return True
-
-    # Specific sidebar UI
-    if "sidebar" in name:
+    if info["width"] >= 1200 and info["height"] >= 650:
         return True
-
+    # A section containing many sibling components is a layout wrapper.
+    if info["direct_container_count"] >= 4 and info["area"] >= 60000:
+        return True
+    if info["direct_container_count"] >= 3 and info["area"] >= 180000:
+        return True
     return False
 
+def semantic_strength(node, info):
+    haystack = norm(node.get("name")) + " " + " ".join(info["texts"]).lower()
+    return sum(word in haystack for word in SEMANTIC_WORDS)
 
-# ============================================================
-# WEAK SEMANTIC CHECKS
-# ============================================================
+def score(node, info):
+    name = norm(node.get("name"))
+    s = min(4, semantic_strength(node, info))
+    if info["text_count"] >= 2: s += 2
+    if info["numeric_count"] >= 1: s += 1
+    if info["numeric_count"] >= 3: s += 1
+    if info["graphic_count"] >= 3: s += 1
+    if info["graphic_count"] >= 8: s += 1
+    if info["ellipse_count"] >= 2: s += 1
+    if info["line_count"] >= 4: s += 1
+    if info["direct_container_count"] >= 2: s += 1
+    if info["area"] >= 20000: s += 1
+    if info["area"] >= 50000: s += 1
+    if name.startswith("element "): s += 3
+    return s
 
-def has_keyword(name, keywords):
-    """
-    Check whether a normalized name contains one of the
-    provided semantic keywords.
-    """
-
-    name = normalize_name(name)
-
-    for keyword in keywords:
-        if keyword in name:
-            return True
-
-    return False
-
-
-def is_meaningful_named_component(node):
-    """
-    Strong semantic names that usually represent an actual
-    dashboard/report component.
-    """
-
-    name = normalize_name(node.get("name"))
-
-    if not name:
+def is_component_candidate(node, info):
+    name = norm(node.get("name"))
+    if is_internal(node) or is_ui(node):
+        return False
+    if info["width"] < 70 or info["height"] < 40:
+        return False
+    if looks_like_layout_wrapper(node, info):
         return False
 
-    meaningful_keywords = [
+    sem = semantic_strength(node, info)
+    s = score(node, info)
 
-        # KPI
-        "kpi",
-        "metric",
-        "stat",
-        "statistics",
+    if name.startswith("element ") and info["area"] >= 15000:
+        return info["text_count"] > 0 or info["graphic_count"] >= 3
+    if name.startswith("kpi") and info["area"] >= 5000:
+        return True
 
-        # Charts
-        "chart",
-        "graph",
-        "trend",
-        "overview",
-        "analytics",
-        "analysis",
-        "survey",
-        "performance",
-        "demographics",
-        "admissions",
-        "appointments",
-        "revenue",
-        "payments",
+    # Named component: name/text itself is useful, but structure still matters.
+    if sem >= 1 and info["area"] >= 8000 and (
+        info["text_count"] >= 1 or info["graphic_count"] >= 2
+    ):
+        return True
 
-        # Tables / lists
-        "table",
-        "activity",
-        "activities",
-        "patient data",
-        "patient list",
-        "doctor list",
-        "admit patient",
-
-        # Healthcare sections
-        "department",
-        "patient statistics",
-        "hospital overview",
-
-        # Calendar / schedule
-        "schedule",
-        "calendar",
-        "appointment",
-
-        # Filters
-        "filter",
-        "date picker",
-        "dropdown",
-        "select",
-        "search",
-    ]
-
-    return has_keyword(name, meaningful_keywords)
-
-
-# ============================================================
-# DIMENSION FILTER
-# ============================================================
-
-def is_dashboard_sized(node):
-    """
-    Prevent the entire dashboard/root frame from becoming
-    a candidate.
-    """
-
-    width = node.get("width", 0) or 0
-    height = node.get("height", 0) or 0
-
-    # Very large frames are normally page/dashboard wrappers.
-    if width >= 1200 and height >= 700:
+    # Generic groups/frames: rely on structure instead of names.
+    if info["area"] >= 18000 and s >= 6 and (
+        info["text_count"] >= 2 or info["graphic_count"] >= 5
+    ):
         return True
 
     return False
 
-
-# ============================================================
-# STRUCTURAL SCORE
-# ============================================================
-
-def calculate_candidate_score(node, all_nodes):
-    """
-    Calculate a structural/semantic score.
-
-    This is NOT the final ML classification.
-
-    It is only used to find reasonable component boundaries.
-    """
-
-    score = 0
-
-    name = normalize_name(node.get("name", ""))
-
-    width = node.get("width", 0) or 0
-    height = node.get("height", 0) or 0
-
-    children = [
-        n for n in all_nodes
-        if n.get("parent_id") == node.get("id")
-    ]
-
-    child_count = len(children)
-
-    text_nodes = [
-        n for n in children
-        if n.get("type") == "TEXT"
-    ]
-
-    text_count = len(text_nodes)
-
-    numeric_text_count = 0
-
-    has_percentage = False
-    has_date_text = False
-
-    for child in text_nodes:
-
-        text = str(child.get("text", ""))
-
-        if re.search(r"\d", text):
-            numeric_text_count += 1
-
-        if "%" in text:
-            has_percentage = True
-
-        if re.search(
-            r"\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\b",
-            text.lower()
-        ):
-            has_date_text = True
-
-    vectors = [
-        n for n in children
-        if n.get("type") == "VECTOR"
-    ]
-
-    lines = [
-        n for n in children
-        if n.get("type") == "LINE"
-    ]
-
-    ellipses = [
-        n for n in children
-        if n.get("type") == "ELLIPSE"
-    ]
-
-    rectangles = [
-        n for n in children
-        if n.get("type") == "RECTANGLE"
-    ]
-
-    # --------------------------------------------------------
-    # Semantic name score
-    # --------------------------------------------------------
-
-    if "kpi" in name:
-        score += 6
-
-    if any(
-        word in name
-        for word in [
-            "chart",
-            "graph",
-            "trend",
-            "overview",
-            "analytics",
-            "survey",
-            "demographics",
-            "admissions",
-            "performance"
-        ]
-    ):
-        score += 4
-
-    if any(
-        word in name
-        for word in [
-            "table",
-            "activity",
-            "activities",
-            "patient data",
-            "patient list",
-            "payments"
-        ]
-    ):
-        score += 4
-
-    if any(
-        word in name
-        for word in [
-            "filter",
-            "date picker",
-            "dropdown",
-            "select"
-        ]
-    ):
-        score += 4
-
-    # --------------------------------------------------------
-    # Numeric/text signals
-    # --------------------------------------------------------
-
-    if numeric_text_count >= 1:
-        score += 1
-
-    if numeric_text_count >= 3:
-        score += 1
-
-    if has_percentage:
-        score += 1
-
-    # --------------------------------------------------------
-    # Structural signals
-    # --------------------------------------------------------
-
-    if child_count >= 5:
-        score += 1
-
-    if child_count >= 15:
-        score += 1
-
-    if child_count >= 30:
-        score += 1
-
-    # --------------------------------------------------------
-    # Graphic signals
-    # --------------------------------------------------------
-
-    if len(lines) >= 5:
-        score += 2
-
-    if len(ellipses) >= 2:
-        score += 2
-
-    if len(rectangles) >= 5:
-        score += 1
-
-    if len(vectors) >= 3:
-        score += 1
-
-    # --------------------------------------------------------
-    # Reasonable component dimensions
-    # --------------------------------------------------------
-
-    area = width * height
-
-    if area >= 20_000:
-        score += 1
-
-    if area >= 50_000:
-        score += 1
-
-    return score
-
-
-# ============================================================
-# CANDIDATE INFORMATION
-# ============================================================
-
-def build_candidate(node, all_nodes, dashboard_name):
-    """
-    Convert raw Figma node into candidate record.
-    """
-
-    children = [
-        n for n in all_nodes
-        if n.get("parent_id") == node.get("id")
-    ]
-
-    text_nodes = [
-        n for n in children
-        if n.get("type") == "TEXT"
-    ]
-
-    numeric_text_count = 0
-    has_percentage = False
-    has_date_text = False
-
-    text_preview = []
-
-    for text_node in text_nodes:
-
-        text = str(
-            text_node.get("text", "")
-        ).strip()
-
-        if not text:
-            continue
-
-        if len(text_preview) < 10:
-            text_preview.append(text)
-
-        if re.search(r"\d", text):
-            numeric_text_count += 1
-
-        if "%" in text:
-            has_percentage = True
-
-        if re.search(
-            r"\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\b",
-            text.lower()
-        ):
-            has_date_text = True
-
-    vector_count = sum(
-        1 for n in children
-        if n.get("type") == "VECTOR"
-    )
-
-    line_count = sum(
-        1 for n in children
-        if n.get("type") == "LINE"
-    )
-
-    ellipse_count = sum(
-        1 for n in children
-        if n.get("type") == "ELLIPSE"
-    )
-
-    rectangle_count = sum(
-        1 for n in children
-        if n.get("type") == "RECTANGLE"
-    )
-
-    graphical_count = (
-        vector_count
-        + line_count
-        + ellipse_count
-        + rectangle_count
-    )
-
-    width = node.get("width", 0) or 0
-    height = node.get("height", 0) or 0
-
-    area = width * height
-
-    aspect_ratio = (
-        width / height
-        if height
-        else 0
-    )
-
-    name = normalize_name(
-        node.get("name", "")
-    )
-
-    candidate = {
+def ancestor_ids(node_id, node_map):
+    out = []
+    p = node_map[node_id].get("parent_id")
+    while p:
+        out.append(p)
+        p = node_map.get(p, {}).get("parent_id")
+    return out
+
+def build_candidate(node, info, dashboard):
+    name = norm(node.get("name"))
+    texts = info["texts"]
+    return {
         "candidate_id": node.get("id"),
         "name": node.get("name"),
         "type": node.get("type"),
         "parent_id": node.get("parent_id"),
-
-        "x": node.get("x", 0),
-        "y": node.get("y", 0),
-
-        "width": width,
-        "height": height,
-
-        "area": area,
-        "aspect_ratio": aspect_ratio,
-
-        "child_count": len(children),
-        "text_count": len(text_nodes),
-        "numeric_text_count": numeric_text_count,
-
-        "has_percentage": has_percentage,
-        "has_date_text": has_date_text,
-
-        "vector_count": vector_count,
-        "line_count": line_count,
-        "ellipse_count": ellipse_count,
-        "rectangle_count": rectangle_count,
-        "graphical_count": graphical_count,
-
-        "text_preview": text_preview,
-
-        "dashboard": dashboard_name,
+        "x": node.get("x", 0), "y": node.get("y", 0),
+        "width": info["width"], "height": info["height"],
+        "area": info["area"], "aspect_ratio": info["aspect_ratio"],
+        "child_count": info["direct_count"],
+        "text_count": info["text_count"],
+        "numeric_text_count": info["numeric_count"],
+        "has_percentage": any("%" in t for t in texts),
+        "has_date_text": info["date_count"] > 0,
+        "vector_count": info["vector_count"],
+        "line_count": info["line_count"],
+        "ellipse_count": info["ellipse_count"],
+        "rectangle_count": info["rectangle_count"],
+        "graphical_count": info["graphic_count"],
+        "text_preview": texts[:10],
+        "dashboard": dashboard,
+        "candidate_score": score(node, info),
+        "has_chart_word": any(w in name for w in ("chart", "graph", "trend", "overview", "analytics")),
+        "has_table_word": any(w in name for w in ("table", "list", "records", "activity", "payment")),
+        "has_kpi_word": any(w in name for w in ("kpi", "metric")),
+        "has_filter_word": any(w in name for w in ("filter", "dropdown", "select", "date picker")),
     }
 
-    candidate["candidate_score"] = calculate_candidate_score(
-        node,
-        all_nodes
-    )
-
-    # --------------------------------------------------------
-    # Semantic flags
-    # --------------------------------------------------------
-
-    candidate["has_chart_word"] = any(
-        word in name
-        for word in [
-            "chart",
-            "graph",
-            "trend",
-            "overview",
-            "analytics",
-            "survey",
-            "demographics",
-            "admissions",
-            "performance"
-        ]
-    )
-
-    candidate["has_table_word"] = any(
-        word in name
-        for word in [
-            "table",
-            "activity",
-            "activities",
-            "patient data",
-            "patient list",
-            "payments"
-        ]
-    )
-
-    candidate["has_kpi_word"] = any(
-        word in name
-        for word in [
-            "kpi",
-            "metric",
-            "stat"
-        ]
-    )
-
-    candidate["has_filter_word"] = any(
-        word in name
-        for word in [
-            "filter",
-            "date picker",
-            "dropdown",
-            "select"
-        ]
-    )
-
-    return candidate
-
-
-# ============================================================
-# REMOVE DUPLICATE / NESTED CANDIDATES
-# ============================================================
-
-def remove_internal_nested_candidates(
-    candidates,
-    node_map
-):
-    """
-    Remove candidates that are clearly children/internal
-    pieces of another selected candidate.
-
-    Important:
-        We do NOT blindly remove every descendant.
-
-    For example:
-
-        kpis-row
-            KPI card 1
-            KPI card 2
-            KPI card 3
-
-    We want the KPI cards.
-
-    But:
-
-        demographics-card
-            demographics-body
-            demographics-legend
-            donut-chart-container
-
-    We want demographics-card only.
-    """
-
-    candidate_ids = {
-        c["candidate_id"]
-        for c in candidates
-    }
-
-    result = []
-
-    # Explicit internal names should always be removed.
-    for candidate in candidates:
-
-        node_id = candidate["candidate_id"]
-
-        node = node_map.get(node_id)
-
-        if not node:
+def remove_nested(candidates, node_map, children):
+    ids = {c["candidate_id"] for c in candidates}
+    kept = []
+    for c in candidates:
+        ancestors = ancestor_ids(c["candidate_id"], node_map)
+        parent_candidates = [a for a in ancestors if a in ids]
+        if not parent_candidates:
+            kept.append(c)
             continue
 
-        if is_internal_component(node):
+        nearest = parent_candidates[0]
+        parent = node_map[nearest]
+        pinfo = stats(nearest, node_map, children)
+        pname = norm(parent.get("name"))
+
+        # Layout sections should expose their child components.
+        if pname in {"kpis row", "split row"}:
+            kept.append(c)
+        elif pinfo["direct_container_count"] >= 3 and pinfo["area"] >= 60000:
+            kept.append(c)
+        elif "table" in norm(node_map[c["candidate_id"]].get("name")) and "activity" in pname:
+            kept.append(c)
+        # Otherwise prefer the highest-level meaningful component.
+        else:
             continue
+    return kept
 
-        result.append(candidate)
-
-    # --------------------------------------------------------
-    # Remove candidates inside another high-level component
-    # when they are obvious structural children.
-    # --------------------------------------------------------
-
-    final_result = []
-
-    for candidate in result:
-
-        node_id = candidate["candidate_id"]
-        node = node_map.get(node_id)
-
-        if not node:
-            continue
-
-        name = normalize_name(
-            node.get("name", "")
-        )
-
-        parent_id = node.get("parent_id")
-
-        remove = False
-
-        while parent_id:
-
-            parent = node_map.get(parent_id)
-
-            if not parent:
-                break
-
-            parent_name = normalize_name(
-                parent.get("name", "")
-            )
-
-            # If parent itself is a meaningful high-level
-            # component, decide whether this child is internal.
-            if parent_id in candidate_ids:
-
-                # Keep actual table inside activity-card only
-                # when the parent is a generic wrapper.
-                if (
-                    "activity" in parent_name
-                    and "table" in name
-                ):
-                    remove = False
-
-                # Keep KPI cards inside kpis-row.
-                elif (
-                    parent_name == "kpis row"
-                    and "kpi" in name
-                ):
-                    remove = False
-
-                # Keep department/demographics cards inside
-                # split-row.
-                elif parent_name == "split row":
-                    remove = False
-
-                # Otherwise a child of a selected high-level
-                # component is probably an internal element.
-                else:
-                    remove = True
-
-                break
-
-            parent_id = parent.get("parent_id")
-
-        if not remove:
-            final_result.append(candidate)
-
-    return final_result
-
-
-# ============================================================
-# MAIN CANDIDATE GENERATION
-# ============================================================
-
-def generate_candidates_for_dashboard(
-    dashboard_dir
-):
-
-    dashboard_name = os.path.basename(
-        dashboard_dir
-    )
-
-    input_file = os.path.join(
-        dashboard_dir,
-        "figma_data.json"
-    )
-
-    if not os.path.exists(input_file):
-
-        print(
-            f"[SKIP] {dashboard_name}: "
-            "figma_data.json not found"
-        )
-
+def generate_dashboard(dashboard_dir):
+    dashboard = os.path.basename(dashboard_dir)
+    path = os.path.join(dashboard_dir, "figma_data.json")
+    if not os.path.exists(path):
+        print(f"[SKIP] {dashboard}: figma_data.json not found")
         return
 
-    # --------------------------------------------------------
-    # Load JSON
-    # --------------------------------------------------------
-
-    with open(
-        input_file,
-        "r",
-        encoding="utf-8"
-    ) as f:
-
+    with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     nodes = data.get("nodes", [])
-
-    if not nodes:
-
-        print(
-            f"[SKIP] {dashboard_name}: "
-            "No nodes found"
-        )
-
-        return
-
-    # --------------------------------------------------------
-    # Build node map
-    # --------------------------------------------------------
-
-    node_map = {
-        node.get("id"): node
-        for node in nodes
-        if node.get("id")
-    }
-
-    # --------------------------------------------------------
-    # First-pass candidate selection
-    # --------------------------------------------------------
-
+    node_map, children = make_maps(nodes)
     candidates = []
 
     for node in nodes:
-
-        # Only containers can represent high-level
-        # dashboard components.
         if not is_container(node):
             continue
+        info = stats(node["id"], node_map, children)
+        if is_component_candidate(node, info):
+            candidates.append(build_candidate(node, info, dashboard))
 
-        # Remove root/dashboard/layout frames.
-        if is_root_or_layout(node):
-            continue
+    candidates = remove_nested(candidates, node_map, children)
+    candidates = list({c["candidate_id"]: c for c in candidates}.values())
+    candidates.sort(key=lambda c: (float(c.get("y") or 0), float(c.get("x") or 0)))
 
-        # Remove huge page-sized frames.
-        if is_dashboard_sized(node):
-            continue
+    output = {"dashboard": dashboard, "candidate_count": len(candidates), "candidates": candidates}
+    out = os.path.join(OUTPUT_DIR, f"{dashboard}_candidates.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
 
-        # Remove navigation/sidebar UI.
-        if is_navigation_or_sidebar(node):
-            continue
-
-        # Remove known internal elements.
-        if is_internal_component(node):
-            continue
-
-        width = node.get("width", 0) or 0
-        height = node.get("height", 0) or 0
-
-        # Ignore extremely tiny containers.
-        if width < 40 or height < 30:
-            continue
-
-        # ----------------------------------------------------
-        # Build candidate
-        # ----------------------------------------------------
-
-        candidate = build_candidate(
-            node,
-            nodes,
-            dashboard_name
-        )
-
-        score = candidate["candidate_score"]
-
-        meaningful_name = is_meaningful_named_component(
-            node
-        )
-
-        # ----------------------------------------------------
-        # Candidate acceptance
-        # ----------------------------------------------------
-
-        accept = False
-
-        # Strong semantic component name.
-        if meaningful_name and score >= 4:
-            accept = True
-
-        # Strong structural component.
-        elif score >= 7:
-            accept = True
-
-        # KPI cards should be retained even if structural
-        # score is slightly lower.
-        elif "kpi" in normalize_name(
-            node.get("name", "")
-        ):
-            accept = True
-
-        if not accept:
-            continue
-
-        candidates.append(candidate)
-
-    # --------------------------------------------------------
-    # Remove nested/internal candidates
-    # --------------------------------------------------------
-
-    candidates = remove_internal_nested_candidates(
-        candidates,
-        node_map
-    )
-
-    # --------------------------------------------------------
-    # Deduplicate
-    # --------------------------------------------------------
-
-    unique = {}
-
-    for candidate in candidates:
-
-        candidate_id = candidate["candidate_id"]
-
-        if candidate_id not in unique:
-
-            unique[candidate_id] = candidate
-
-        else:
-
-            # Keep higher scoring version.
-            if (
-                candidate["candidate_score"]
-                > unique[candidate_id]["candidate_score"]
-            ):
-                unique[candidate_id] = candidate
-
-    candidates = list(
-        unique.values()
-    )
-
-    # --------------------------------------------------------
-    # Sort
-    # --------------------------------------------------------
-
-    candidates.sort(
-        key=lambda x: (
-            x.get("y", 0),
-            x.get("x", 0)
-        )
-    )
-
-    # --------------------------------------------------------
-    # Save
-    # --------------------------------------------------------
-
-    output_file = os.path.join(
-        OUTPUT_DIR,
-        f"{dashboard_name}_candidates.json"
-    )
-
-    output = {
-        "dashboard": dashboard_name,
-        "candidate_count": len(candidates),
-        "candidates": candidates
-    }
-
-    with open(
-        output_file,
-        "w",
-        encoding="utf-8"
-    ) as f:
-
-        json.dump(
-            output,
-            f,
-            indent=2,
-            ensure_ascii=False
-        )
-
-    # --------------------------------------------------------
-    # Console output
-    # --------------------------------------------------------
-
-    print(
-        f"[DONE] {dashboard_name}: "
-        f"{len(candidates)} candidates"
-    )
-
-    for candidate in candidates:
-
-        print(
-            f"   - "
-            f"{candidate['candidate_id']} | "
-            f"{candidate['name']} | "
-            f"score={candidate['candidate_score']}"
-        )
-
-
-# ============================================================
-# MAIN
-# ============================================================
+    print(f"[DONE] {dashboard}: {len(candidates)} candidates")
+    for c in candidates:
+        print(f"   - {c['candidate_id']} | {c['name']} | score={c['candidate_score']}")
 
 def main():
-
     print("=" * 60)
     print("GENERATING DASHBOARD COMPONENT CANDIDATES")
     print("=" * 60)
-
-    if not os.path.exists(DASHBOARDS_DIR):
-
-        print(
-            f"[ERROR] Dashboard directory not found:\n"
-            f"{DASHBOARDS_DIR}"
-        )
-
-        return
-
-    dashboard_folders = sorted(
-        [
-            folder
-            for folder in os.listdir(
-                DASHBOARDS_DIR
-            )
-            if os.path.isdir(
-                os.path.join(
-                    DASHBOARDS_DIR,
-                    folder
-                )
-            )
-        ]
+    dashboards = sorted(
+        d for d in os.listdir(DASHBOARDS_DIR)
+        if os.path.isdir(os.path.join(DASHBOARDS_DIR, d))
     )
-
-    if not dashboard_folders:
-
-        print(
-            "[ERROR] No dashboard folders found."
-        )
-
-        return
-
-    print(
-        f"Found {len(dashboard_folders)} dashboards."
-    )
-
-    print()
-
-    for dashboard in dashboard_folders:
-
-        dashboard_dir = os.path.join(
-            DASHBOARDS_DIR,
-            dashboard
-        )
-
-        generate_candidates_for_dashboard(
-            dashboard_dir
-        )
-
-    print()
+    print(f"Found {len(dashboards)} dashboards.")
+    for dashboard in dashboards:
+        generate_dashboard(os.path.join(DASHBOARDS_DIR, dashboard))
     print("=" * 60)
     print("CANDIDATE GENERATION COMPLETE")
     print("=" * 60)
-
 
 if __name__ == "__main__":
     main()
