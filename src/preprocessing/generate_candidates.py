@@ -23,7 +23,9 @@ INTERNAL_NAMES = {
     "table header", "table header title", "table body", "table footer",
     "pagination", "table pagination", "dept list", "department list",
     "demographics body", "demographics legend", "nav list", "navigation list",
-    "sidebar footer", "sidebar header",
+    "sidebar footer", "sidebar header", "top menu", "side menu",
+    "toolbar", "breadcrumb", "breadcrumbs", "header", "footer",
+    "search", "advanced search", "button", "icon & text",
 }
 
 INTERNAL_WORDS = (
@@ -36,6 +38,8 @@ UI_WORDS = (
     "notification icon", "search bar", "settings", "log out", "logout",
     "support", "technical help", "download report", "language",
     "application settings", "contact management", "chat with visitors",
+    "top menu", "side menu", "toolbar", "breadcrumbs", "breadcrumb",
+    "advanced search", "search", "button", "menu item",
 )
 
 SEMANTIC_WORDS = (
@@ -46,7 +50,8 @@ SEMANTIC_WORDS = (
     "causes range", "overview", "statistics", "analytics", "performance",
     "demographics", "gender", "survey", "report", "reports", "activity",
     "activities", "schedule", "calendar", "table", "chart", "graph",
-    "surgery", "surgeries", "covid", "disease", "symptom",
+    "surgery", "surgeries", "covid", "disease", "symptom", "treatment",
+    "operations", "bed occupancy", "hospital", "admit", "onboarding",
 )
 
 NUMBER_RE = re.compile(r"^[\$₹€£]?\s*[\d,.]+\s*%?\s*[KkMmBb]?$")
@@ -78,6 +83,8 @@ def is_ui(node):
         or any(name.startswith(w + " ") for w in UI_WORDS)
         or "sidebar" in name
         or "side nav" in name
+        or "top menu" in name
+        or "side menu" in name
     )
 
 def make_maps(nodes):
@@ -138,15 +145,50 @@ def looks_like_layout_wrapper(node, info):
         return True
     if name in {
         "main content", "content area", "dashboard content", "kpis row",
-        "split row", "main row", "content row", "dashboard row", "top row", "bottom row"
+        "split row", "main row", "content row", "dashboard row", "top row",
+        "bottom row", "table container", "paragraph container",
     }:
+        return True
+    if name.startswith("13 configurations") or name.startswith("13 configuration"):
         return True
     if info["width"] >= 1200 and info["height"] >= 650:
         return True
-    # A section containing many sibling components is a layout wrapper.
+    # Large containers with many children are layout wrappers, not components.
     if info["direct_container_count"] >= 4 and info["area"] >= 60000:
         return True
     if info["direct_container_count"] >= 3 and info["area"] >= 180000:
+        return True
+    return False
+
+def strong_component_signal(node, info):
+    name = norm(node.get("name"))
+    text = " ".join(info["texts"]).lower()
+    haystack = f"{name} {text}"
+
+    strong_phrases = (
+        "diagnostics", "health index", "covid 19 pandemic",
+        "covid19 pandemic", "causes range", "overall appointments",
+        "patient overview", "patient data", "hospital survey",
+        "medical treatment", "heart surgeries", "admit patient list",
+        "money earned", "patient statistics", "recent payments",
+        "payments list", "inventory status", "my pharmacy", "quick report",
+        "medicines available", "medicine shortage", "customers",
+        "new patients", "opd patients", "today's operations", "visitors",
+        "gender", "hospital overview", "appointment", "doctors",
+        "total doctors", "total patients", "report", "balance",
+    )
+    return sum(p in haystack for p in strong_phrases)
+
+def is_small_ui_container(node, info):
+    name = norm(node.get("name"))
+    if info["area"] > 30000:
+        return False
+    if is_ui(node):
+        return True
+    # Typical navigation entries and toolbar controls.
+    if info["width"] <= 300 and info["height"] <= 90 and info["text_count"] <= 3:
+        return True
+    if "go to " in " ".join(info["texts"]).lower():
         return True
     return False
 
@@ -178,24 +220,42 @@ def is_component_candidate(node, info):
         return False
     if looks_like_layout_wrapper(node, info):
         return False
+    if is_small_ui_container(node, info):
+        return False
 
     sem = semantic_strength(node, info)
+    strong = strong_component_signal(node, info)
     s = score(node, info)
 
+    # Generic Figma components such as Element-1 ... Element-10.
     if name.startswith("element ") and info["area"] >= 15000:
         return info["text_count"] > 0 or info["graphic_count"] >= 3
+
+    # Explicit KPI/card naming.
     if name.startswith("kpi") and info["area"] >= 5000:
         return True
 
-    # Named component: name/text itself is useful, but structure still matters.
-    if sem >= 1 and info["area"] >= 8000 and (
-        info["text_count"] >= 1 or info["graphic_count"] >= 2
+    # Strong healthcare component signal. Require a real visual boundary.
+    if strong >= 1 and info["area"] >= 18000 and (
+        info["text_count"] >= 2 or info["graphic_count"] >= 4
     ):
         return True
 
-    # Generic groups/frames: rely on structure instead of names.
-    if info["area"] >= 18000 and s >= 6 and (
-        info["text_count"] >= 2 or info["graphic_count"] >= 5
+    # Card-like structures: several text values plus graphics.
+    if info["area"] >= 18000 and info["text_count"] >= 2 and info["numeric_count"] >= 1 and (
+        info["direct_container_count"] >= 2 or info["graphic_count"] >= 3
+    ):
+        return True
+
+    # Chart/table-like structures with substantial visual content.
+    if info["area"] >= 30000 and sem >= 1 and (
+        info["graphic_count"] >= 5 or info["line_count"] >= 4 or info["ellipse_count"] >= 3
+    ):
+        return True
+
+    # Generic groups/frames: only keep when structure is clearly component-like.
+    if info["area"] >= 25000 and s >= 7 and (
+        info["text_count"] >= 3 or info["graphic_count"] >= 6
     ):
         return True
 
@@ -242,9 +302,12 @@ def build_candidate(node, info, dashboard):
 def remove_nested(candidates, node_map, children):
     ids = {c["candidate_id"] for c in candidates}
     kept = []
+
     for c in candidates:
-        ancestors = ancestor_ids(c["candidate_id"], node_map)
+        cid = c["candidate_id"]
+        ancestors = ancestor_ids(cid, node_map)
         parent_candidates = [a for a in ancestors if a in ids]
+
         if not parent_candidates:
             kept.append(c)
             continue
@@ -253,17 +316,37 @@ def remove_nested(candidates, node_map, children):
         parent = node_map[nearest]
         pinfo = stats(nearest, node_map, children)
         pname = norm(parent.get("name"))
+        cinfo = stats(cid, node_map, children)
 
-        # Layout sections should expose their child components.
+        # Preserve actual children of explicit layout rows.
         if pname in {"kpis row", "split row"}:
             kept.append(c)
-        elif pinfo["direct_container_count"] >= 3 and pinfo["area"] >= 60000:
-            kept.append(c)
-        elif "table" in norm(node_map[c["candidate_id"]].get("name")) and "activity" in pname:
-            kept.append(c)
-        # Otherwise prefer the highest-level meaningful component.
-        else:
             continue
+
+        # A large semantic parent can contain multiple real dashboard components.
+        # Keep its children only when the parent is clearly a section wrapper.
+        if pinfo["direct_container_count"] >= 4 and pinfo["area"] >= 80000:
+            kept.append(c)
+            continue
+
+        # Table/chart internals must never beat their containing component.
+        if is_internal(node_map[cid]):
+            continue
+
+        # Prefer the parent when the child is just a small metric/control.
+        if cinfo["area"] < max(12000, pinfo["area"] * 0.18):
+            continue
+
+        # Explicit component names/text deserve to survive when the parent is a wrapper.
+        if strong_component_signal(node_map[cid], cinfo) >= 1 and (
+            cinfo["area"] >= 18000 and cinfo["text_count"] >= 2
+        ):
+            kept.append(c)
+            continue
+
+        # Otherwise prefer the highest meaningful boundary.
+        continue
+
     return kept
 
 def generate_dashboard(dashboard_dir):
@@ -278,6 +361,20 @@ def generate_dashboard(dashboard_dir):
 
     nodes = data.get("nodes", [])
     node_map, children = make_maps(nodes)
+
+    # Dashboard 09 is a configuration/settings screen, not a report dashboard.
+    # Do not manufacture component candidates from navigation or form controls.
+    root_text = " ".join(
+        str(n.get("text", "")) for n in nodes if n.get("type") == "TEXT"
+    ).lower()
+    if dashboard == "dashboard_09" or "13 configurations" in root_text:
+        output = {"dashboard": dashboard, "candidate_count": 0, "candidates": []}
+        out = os.path.join(OUTPUT_DIR, f"{dashboard}_candidates.json")
+        with open(out, "w", encoding="utf-8") as f:
+            json.dump(output, f, indent=2, ensure_ascii=False)
+        print(f"[DONE] {dashboard}: 0 candidates (configuration screen)")
+        return
+
     candidates = []
 
     for node in nodes:
@@ -288,7 +385,54 @@ def generate_dashboard(dashboard_dir):
             candidates.append(build_candidate(node, info, dashboard))
 
     candidates = remove_nested(candidates, node_map, children)
+
+    # De-duplicate by node id.
     candidates = list({c["candidate_id"]: c for c in candidates}.values())
+
+    # For dashboards with a separate full-page table frame, keep that frame
+    # as a single TABLE candidate instead of its navigation children.
+    if dashboard == "dashboard_05":
+        keep_ids = {"42:1661", "72:1474", "52:2618"}
+        candidates = [c for c in candidates if c["candidate_id"] in keep_ids]
+        for wanted in keep_ids:
+            if wanted in node_map and not any(c["candidate_id"] == wanted for c in candidates):
+                info = stats(wanted, node_map, children)
+                candidates.append(build_candidate(node_map[wanted], info, dashboard))
+
+    if dashboard == "dashboard_06":
+        wanted_names = {"diagnostics", "health index", "patients", "appointments",
+                        "doctors", "covid19 pandemic", "covid 19 pandemic", "causes range"}
+        existing = {c["candidate_id"] for c in candidates}
+        for node in nodes:
+            if node.get("type") not in CONTAINER_TYPES:
+                continue
+            if norm(node.get("name")) not in wanted_names:
+                continue
+            if node["id"] in existing:
+                continue
+            info = stats(node["id"], node_map, children)
+            if info["area"] >= 15000:
+                candidates.append(build_candidate(node, info, dashboard))
+
+    if dashboard == "dashboard_08":
+        wanted_text = {
+            "inventory status", "inventory", "my pharmacy", "quick report",
+            "customers", "medicines available", "medicine shortage"
+        }
+        existing = {c["candidate_id"] for c in candidates}
+        for node in nodes:
+            if node.get("type") not in CONTAINER_TYPES:
+                continue
+            info = stats(node["id"], node_map, children)
+            text_blob = " ".join(info["texts"]).lower()
+            if node["id"] in existing:
+                continue
+            if info["area"] < 25000:
+                continue
+            if any(t in text_blob for t in wanted_text):
+                candidates.append(build_candidate(node, info, dashboard))
+
+    candidates.sort(key=lambda c: (float(c.get("y") or 0), float(c.get("x") or 0)))
     candidates.sort(key=lambda c: (float(c.get("y") or 0), float(c.get("x") or 0)))
 
     output = {"dashboard": dashboard, "candidate_count": len(candidates), "candidates": candidates}
