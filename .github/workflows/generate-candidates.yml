@@ -1,0 +1,43 @@
+name: Generate dashboard candidates
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  generate-candidates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate candidates
+        run: python src/preprocessing/generate_candidates.py
+
+      - name: Show generated candidates
+        run: |
+          for f in dataset/candidates/*_candidates.json; do
+            echo "=== $f ==="
+            python -c "import json; d=json.load(open('$f')); print(d['candidate_count']); [print(' -', c['candidate_id'], '|', c['name']) for c in d['candidates']]"
+          done
+
+      - name: Commit generated candidate files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dataset/candidates/*_candidates.json
+          if git diff --cached --quiet; then
+            echo "No candidate output changes."
+          else
+            git commit -m "Regenerate dashboard candidates"
+            git push
+          fi
