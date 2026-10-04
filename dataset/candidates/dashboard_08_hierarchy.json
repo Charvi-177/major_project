@@ -1,0 +1,2737 @@
+{
+  "dashboard": "dashboard_08",
+  "file_name": "Untitled",
+  "total_nodes": 217,
+  "roots": [
+    "0:1"
+  ],
+  "nodes": {
+    "0:1": {
+      "id": "0:1",
+      "name": "Page 1",
+      "type": "PAGE",
+      "parent_id": null
+    },
+    "1:3": {
+      "id": "1:3",
+      "name": "01 dashboard - landing page",
+      "type": "FRAME",
+      "parent_id": "0:1",
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    "1:4": {
+      "id": "1:4",
+      "name": "side_nav_bg",
+      "type": "RECTANGLE",
+      "parent_id": "1:3",
+      "x": 256,
+      "y": 0,
+      "width": 1024,
+      "height": 60
+    },
+    "1:5": {
+      "id": "1:5",
+      "name": "Group 2",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 296,
+      "y": 11,
+      "width": 440,
+      "height": 38
+    },
+    "1:6": {
+      "id": "1:6",
+      "name": "top_bar_bg",
+      "type": "RECTANGLE",
+      "parent_id": "1:5",
+      "x": 296,
+      "y": 11,
+      "width": 440,
+      "height": 38
+    },
+    "1:7": {
+      "id": "1:7",
+      "name": "Search for anything here..",
+      "type": "TEXT",
+      "parent_id": "1:5",
+      "x": 308,
+      "y": 22,
+      "width": 154,
+      "height": 18,
+      "text": "Search for anything here.."
+    },
+    "1:8": {
+      "id": "1:8",
+      "name": "side_nav_bg",
+      "type": "RECTANGLE",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 0,
+      "width": 256,
+      "height": 720
+    },
+    "1:9": {
+      "id": "1:9",
+      "name": "Line 3",
+      "type": "LINE",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 356,
+      "width": 256,
+      "height": 0
+    },
+    "1:10": {
+      "id": "1:10",
+      "name": "Line 4",
+      "type": "LINE",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 514,
+      "width": 256,
+      "height": 0
+    },
+    "1:11": {
+      "id": "1:11",
+      "name": "side_nav_bg",
+      "type": "RECTANGLE",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 0,
+      "width": 256,
+      "height": 60
+    },
+    "1:12": {
+      "id": "1:12",
+      "name": "Group 37",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 686,
+      "width": 256,
+      "height": 34
+    },
+    "1:13": {
+      "id": "1:13",
+      "name": "Rectangle 16",
+      "type": "RECTANGLE",
+      "parent_id": "1:12",
+      "x": 0,
+      "y": 686,
+      "width": 256,
+      "height": 34
+    },
+    "1:14": {
+      "id": "1:14",
+      "name": "Powered by Subash © 2022",
+      "type": "TEXT",
+      "parent_id": "1:12",
+      "x": 24,
+      "y": 696,
+      "width": 136,
+      "height": 15,
+      "text": "Powered by Subash © 2022"
+    },
+    "1:15": {
+      "id": "1:15",
+      "name": "v 1.1.2",
+      "type": "TEXT",
+      "parent_id": "1:12",
+      "x": 208,
+      "y": 696,
+      "width": 25,
+      "height": 15,
+      "text": "v 1.1.2"
+    },
+    "1:16": {
+      "id": "1:16",
+      "name": "Group 4",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 162,
+      "width": 256,
+      "height": 46
+    },
+    "1:17": {
+      "id": "1:17",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:16",
+      "x": 0,
+      "y": 162,
+      "width": 256,
+      "height": 46
+    },
+    "1:18": {
+      "id": "1:18",
+      "name": "Dashboard",
+      "type": "TEXT",
+      "parent_id": "1:16",
+      "x": 50,
+      "y": 175,
+      "width": 79,
+      "height": 21,
+      "text": "Dashboard"
+    },
+    "1:19": {
+      "id": "1:19",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:16",
+      "x": 24,
+      "y": 178,
+      "width": 14,
+      "height": 14
+    },
+    "1:20": {
+      "id": "1:20",
+      "name": "Group 5",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 208,
+      "width": 256,
+      "height": 46
+    },
+    "1:21": {
+      "id": "1:21",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:20",
+      "x": 0,
+      "y": 208,
+      "width": 256,
+      "height": 46
+    },
+    "1:22": {
+      "id": "1:22",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:20",
+      "x": 224,
+      "y": 229,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:23": {
+      "id": "1:23",
+      "name": "Inventory",
+      "type": "TEXT",
+      "parent_id": "1:20",
+      "x": 50,
+      "y": 221,
+      "width": 67,
+      "height": 21,
+      "text": "Inventory"
+    },
+    "1:24": {
+      "id": "1:24",
+      "name": "Group",
+      "type": "GROUP",
+      "parent_id": "1:20",
+      "x": 24,
+      "y": 224,
+      "width": 14,
+      "height": 14
+    },
+    "1:25": {
+      "id": "1:25",
+      "name": "Group",
+      "type": "GROUP",
+      "parent_id": "1:24",
+      "x": 24,
+      "y": 224,
+      "width": 14,
+      "height": 14
+    },
+    "1:26": {
+      "id": "1:26",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:25",
+      "x": 24,
+      "y": 224,
+      "width": 14,
+      "height": 14
+    },
+    "1:27": {
+      "id": "1:27",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:25",
+      "x": 29,
+      "y": 232,
+      "width": 4.199999809265137,
+      "height": 1.399999976158142
+    },
+    "1:28": {
+      "id": "1:28",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:25",
+      "x": 30.40000009536743,
+      "y": 234.80000019073486,
+      "width": 4.199999809265137,
+      "height": 1.399999976158142
+    },
+    "1:29": {
+      "id": "1:29",
+      "name": "Group 6",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 254,
+      "width": 256,
+      "height": 46
+    },
+    "1:30": {
+      "id": "1:30",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:29",
+      "x": 0,
+      "y": 254,
+      "width": 256,
+      "height": 46
+    },
+    "1:31": {
+      "id": "1:31",
+      "name": "Reports",
+      "type": "TEXT",
+      "parent_id": "1:29",
+      "x": 50,
+      "y": 267,
+      "width": 54,
+      "height": 21,
+      "text": "Reports"
+    },
+    "1:32": {
+      "id": "1:32",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:29",
+      "x": 224,
+      "y": 275,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:33": {
+      "id": "1:33",
+      "name": "Group",
+      "type": "GROUP",
+      "parent_id": "1:29",
+      "x": 24,
+      "y": 273,
+      "width": 14,
+      "height": 7.636363506317139
+    },
+    "1:34": {
+      "id": "1:34",
+      "name": "Group",
+      "type": "GROUP",
+      "parent_id": "1:33",
+      "x": 24,
+      "y": 273,
+      "width": 14,
+      "height": 7.636363506317139
+    },
+    "1:35": {
+      "id": "1:35",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:34",
+      "x": 24,
+      "y": 273,
+      "width": 14,
+      "height": 7.636363506317139
+    },
+    "1:36": {
+      "id": "1:36",
+      "name": "Group 10",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 300,
+      "width": 256,
+      "height": 46
+    },
+    "1:37": {
+      "id": "1:37",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:36",
+      "x": 0,
+      "y": 300,
+      "width": 256,
+      "height": 46
+    },
+    "1:38": {
+      "id": "1:38",
+      "name": "Configuration",
+      "type": "TEXT",
+      "parent_id": "1:36",
+      "x": 50,
+      "y": 313,
+      "width": 98,
+      "height": 21,
+      "text": "Configuration"
+    },
+    "1:39": {
+      "id": "1:39",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:36",
+      "x": 24,
+      "y": 316,
+      "width": 14,
+      "height": 14
+    },
+    "1:40": {
+      "id": "1:40",
+      "name": "Group 11",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 524,
+      "width": 256,
+      "height": 46
+    },
+    "1:41": {
+      "id": "1:41",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:40",
+      "x": 0,
+      "y": 524,
+      "width": 256,
+      "height": 46
+    },
+    "1:42": {
+      "id": "1:42",
+      "name": "Application Settings",
+      "type": "TEXT",
+      "parent_id": "1:40",
+      "x": 50,
+      "y": 537,
+      "width": 142,
+      "height": 21,
+      "text": "Application Settings"
+    },
+    "1:43": {
+      "id": "1:43",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:40",
+      "x": 24,
+      "y": 540,
+      "width": 14,
+      "height": 14
+    },
+    "1:44": {
+      "id": "1:44",
+      "name": "Group 12",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 570,
+      "width": 256,
+      "height": 46
+    },
+    "1:45": {
+      "id": "1:45",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:44",
+      "x": 0,
+      "y": 570,
+      "width": 256,
+      "height": 46
+    },
+    "1:46": {
+      "id": "1:46",
+      "name": "Covid -19",
+      "type": "TEXT",
+      "parent_id": "1:44",
+      "x": 50,
+      "y": 583,
+      "width": 67,
+      "height": 21,
+      "text": "Covid -19"
+    },
+    "1:47": {
+      "id": "1:47",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:44",
+      "x": 24,
+      "y": 586,
+      "width": 14,
+      "height": 14
+    },
+    "1:48": {
+      "id": "1:48",
+      "name": "Group 35",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 616,
+      "width": 256,
+      "height": 46
+    },
+    "1:49": {
+      "id": "1:49",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:48",
+      "x": 0,
+      "y": 616,
+      "width": 256,
+      "height": 46
+    },
+    "1:50": {
+      "id": "1:50",
+      "name": "Get Technical Help",
+      "type": "TEXT",
+      "parent_id": "1:48",
+      "x": 50,
+      "y": 629,
+      "width": 133,
+      "height": 21,
+      "text": "Get Technical Help"
+    },
+    "1:51": {
+      "id": "1:51",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:48",
+      "x": 24,
+      "y": 632,
+      "width": 14,
+      "height": 14
+    },
+    "1:52": {
+      "id": "1:52",
+      "name": "Group 7",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 366,
+      "width": 256,
+      "height": 46
+    },
+    "1:53": {
+      "id": "1:53",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:52",
+      "x": 0,
+      "y": 366,
+      "width": 256,
+      "height": 46
+    },
+    "1:54": {
+      "id": "1:54",
+      "name": "Contact Management",
+      "type": "TEXT",
+      "parent_id": "1:52",
+      "x": 50,
+      "y": 379,
+      "width": 157,
+      "height": 21,
+      "text": "Contact Management"
+    },
+    "1:55": {
+      "id": "1:55",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:52",
+      "x": 224,
+      "y": 387,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:56": {
+      "id": "1:56",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:52",
+      "x": 24,
+      "y": 384,
+      "width": 14,
+      "height": 9.800000190734863
+    },
+    "1:57": {
+      "id": "1:57",
+      "name": "Group 8",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 412,
+      "width": 256,
+      "height": 46
+    },
+    "1:58": {
+      "id": "1:58",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:57",
+      "x": 0,
+      "y": 412,
+      "width": 256,
+      "height": 46
+    },
+    "1:59": {
+      "id": "1:59",
+      "name": "Notifications",
+      "type": "TEXT",
+      "parent_id": "1:57",
+      "x": 50,
+      "y": 425,
+      "width": 89,
+      "height": 21,
+      "text": "Notifications"
+    },
+    "1:60": {
+      "id": "1:60",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:57",
+      "x": 25,
+      "y": 428,
+      "width": 11.48717975616455,
+      "height": 14
+    },
+    "1:61": {
+      "id": "1:61",
+      "name": "Group 35",
+      "type": "GROUP",
+      "parent_id": "1:57",
+      "x": 212,
+      "y": 425,
+      "width": 20,
+      "height": 20
+    },
+    "1:62": {
+      "id": "1:62",
+      "name": "Ellipse 14",
+      "type": "ELLIPSE",
+      "parent_id": "1:61",
+      "x": 212,
+      "y": 425,
+      "width": 20,
+      "height": 20
+    },
+    "1:63": {
+      "id": "1:63",
+      "name": "01",
+      "type": "TEXT",
+      "parent_id": "1:61",
+      "x": 217,
+      "y": 428,
+      "width": 10,
+      "height": 15,
+      "text": "01"
+    },
+    "1:64": {
+      "id": "1:64",
+      "name": "Group 9",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 0,
+      "y": 458,
+      "width": 256,
+      "height": 46
+    },
+    "1:65": {
+      "id": "1:65",
+      "name": "Rectangle 13",
+      "type": "RECTANGLE",
+      "parent_id": "1:64",
+      "x": 0,
+      "y": 458,
+      "width": 256,
+      "height": 46
+    },
+    "1:66": {
+      "id": "1:66",
+      "name": "Chat with Visitors",
+      "type": "TEXT",
+      "parent_id": "1:64",
+      "x": 50,
+      "y": 471,
+      "width": 124,
+      "height": 21,
+      "text": "Chat with Visitors"
+    },
+    "1:67": {
+      "id": "1:67",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:64",
+      "x": 24,
+      "y": 474,
+      "width": 14,
+      "height": 14
+    },
+    "1:68": {
+      "id": "1:68",
+      "name": "Pharma One",
+      "type": "TEXT",
+      "parent_id": "1:3",
+      "x": 82,
+      "y": 17,
+      "width": 115,
+      "height": 24,
+      "text": "Pharma One"
+    },
+    "1:69": {
+      "id": "1:69",
+      "name": "Group 14",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 296,
+      "y": 90,
+      "width": 270,
+      "height": 56
+    },
+    "1:70": {
+      "id": "1:70",
+      "name": "A quick data overview of the inventory.",
+      "type": "TEXT",
+      "parent_id": "1:69",
+      "x": 296,
+      "y": 125,
+      "width": 270,
+      "height": 21,
+      "text": "A quick data overview of the inventory."
+    },
+    "1:71": {
+      "id": "1:71",
+      "name": "Dashboard",
+      "type": "TEXT",
+      "parent_id": "1:69",
+      "x": 296,
+      "y": 90,
+      "width": 138,
+      "height": 24,
+      "text": "Dashboard"
+    },
+    "1:72": {
+      "id": "1:72",
+      "name": "logo 2 (2) 1",
+      "type": "RECTANGLE",
+      "parent_id": "1:3",
+      "x": 24,
+      "y": 9,
+      "width": 42,
+      "height": 42
+    },
+    "1:73": {
+      "id": "1:73",
+      "name": "Group 3",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 24,
+      "y": 90,
+      "width": 207,
+      "height": 42
+    },
+    "1:74": {
+      "id": "1:74",
+      "name": "Subash",
+      "type": "TEXT",
+      "parent_id": "1:73",
+      "x": 82,
+      "y": 91,
+      "width": 139,
+      "height": 21,
+      "text": "Subash"
+    },
+    "1:75": {
+      "id": "1:75",
+      "name": "Super Admin",
+      "type": "TEXT",
+      "parent_id": "1:73",
+      "x": 82,
+      "y": 114,
+      "width": 71,
+      "height": 17,
+      "text": "Super Admin"
+    },
+    "1:76": {
+      "id": "1:76",
+      "name": "Group 13",
+      "type": "GROUP",
+      "parent_id": "1:73",
+      "x": 229,
+      "y": 103,
+      "width": 2,
+      "height": 16
+    },
+    "1:77": {
+      "id": "1:77",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:76",
+      "x": 229,
+      "y": 110,
+      "width": 2,
+      "height": 2
+    },
+    "1:78": {
+      "id": "1:78",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:76",
+      "x": 229,
+      "y": 103,
+      "width": 2,
+      "height": 2
+    },
+    "1:79": {
+      "id": "1:79",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:76",
+      "x": 229,
+      "y": 117,
+      "width": 2,
+      "height": 2
+    },
+    "1:80": {
+      "id": "1:80",
+      "name": "Rectangle 7",
+      "type": "RECTANGLE",
+      "parent_id": "1:73",
+      "x": 66,
+      "y": 90,
+      "width": 42,
+      "height": 42
+    },
+    "1:81": {
+      "id": "1:81",
+      "name": "Ellipse 11",
+      "type": "ELLIPSE",
+      "parent_id": "1:73",
+      "x": 59,
+      "y": 114,
+      "width": 14,
+      "height": 14
+    },
+    "1:82": {
+      "id": "1:82",
+      "name": "Rectangle 31",
+      "type": "RECTANGLE",
+      "parent_id": "1:3",
+      "x": 256,
+      "y": 359,
+      "width": 1024,
+      "height": 361
+    },
+    "1:83": {
+      "id": "1:83",
+      "name": "Line 2",
+      "type": "LINE",
+      "parent_id": "1:3",
+      "x": 256,
+      "y": 60,
+      "width": 1024,
+      "height": 0
+    },
+    "1:84": {
+      "id": "1:84",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:3",
+      "x": 710,
+      "y": 23,
+      "width": 13.991791725158691,
+      "height": 13.999999046325684
+    },
+    "1:85": {
+      "id": "1:85",
+      "name": "Group 15",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 1048,
+      "y": 95,
+      "width": 192,
+      "height": 46
+    },
+    "1:86": {
+      "id": "1:86",
+      "name": "Rectangle 17",
+      "type": "RECTANGLE",
+      "parent_id": "1:85",
+      "x": 1048,
+      "y": 95,
+      "width": 192,
+      "height": 46
+    },
+    "1:87": {
+      "id": "1:87",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:85",
+      "x": 1214,
+      "y": 116,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:88": {
+      "id": "1:88",
+      "name": "Download Report",
+      "type": "TEXT",
+      "parent_id": "1:85",
+      "x": 1066,
+      "y": 107,
+      "width": 129,
+      "height": 23,
+      "text": "Download Report"
+    },
+    "1:89": {
+      "id": "1:89",
+      "name": "Group 21",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 1080,
+      "y": 10,
+      "width": 160,
+      "height": 40
+    },
+    "1:90": {
+      "id": "1:90",
+      "name": "Good Morning",
+      "type": "TEXT",
+      "parent_id": "1:89",
+      "x": 1140,
+      "y": 10,
+      "width": 100,
+      "height": 24,
+      "text": "Good Morning"
+    },
+    "1:91": {
+      "id": "1:91",
+      "name": "Group 18",
+      "type": "GROUP",
+      "parent_id": "1:89",
+      "x": 1080,
+      "y": 32,
+      "width": 160,
+      "height": 18
+    },
+    "1:92": {
+      "id": "1:92",
+      "name": "14 January 2022",
+      "type": "TEXT",
+      "parent_id": "1:91",
+      "x": 1080,
+      "y": 32,
+      "width": 96,
+      "height": 18,
+      "text": "14 January 2022"
+    },
+    "1:93": {
+      "id": "1:93",
+      "name": "22:45:04",
+      "type": "TEXT",
+      "parent_id": "1:91",
+      "x": 1190,
+      "y": 32,
+      "width": 50,
+      "height": 18,
+      "text": "22:45:04"
+    },
+    "1:94": {
+      "id": "1:94",
+      "name": "Ellipse 12",
+      "type": "ELLIPSE",
+      "parent_id": "1:91",
+      "x": 1182,
+      "y": 40,
+      "width": 2,
+      "height": 2
+    },
+    "1:95": {
+      "id": "1:95",
+      "name": "Ellipse 13",
+      "type": "ELLIPSE",
+      "parent_id": "1:89",
+      "x": 1111,
+      "y": 10,
+      "width": 18,
+      "height": 18
+    },
+    "1:96": {
+      "id": "1:96",
+      "name": "Group 20",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 878,
+      "y": 20,
+      "width": 118,
+      "height": 20
+    },
+    "1:97": {
+      "id": "1:97",
+      "name": "Group 19",
+      "type": "GROUP",
+      "parent_id": "1:96",
+      "x": 908,
+      "y": 21,
+      "width": 88,
+      "height": 18
+    },
+    "1:98": {
+      "id": "1:98",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:97",
+      "x": 988,
+      "y": 28,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:99": {
+      "id": "1:99",
+      "name": "English (US)",
+      "type": "TEXT",
+      "parent_id": "1:97",
+      "x": 908,
+      "y": 21,
+      "width": 72,
+      "height": 18,
+      "text": "English (US)"
+    },
+    "1:100": {
+      "id": "1:100",
+      "name": "translate_black_24dp 1",
+      "type": "FRAME",
+      "parent_id": "1:96",
+      "x": 878,
+      "y": 20,
+      "width": 20,
+      "height": 20
+    },
+    "1:101": {
+      "id": "1:101",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:100",
+      "x": 0,
+      "y": 0,
+      "width": 20,
+      "height": 20
+    },
+    "1:102": {
+      "id": "1:102",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:100",
+      "x": 0.8333333730697632,
+      "y": 1.6666667461395264,
+      "width": 18.333332061767578,
+      "height": 16.666667938232422
+    },
+    "1:103": {
+      "id": "1:103",
+      "name": "Group 38",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 256,
+      "y": 648,
+      "width": 14,
+      "height": 38
+    },
+    "1:104": {
+      "id": "1:104",
+      "name": "Rectangle 26",
+      "type": "VECTOR",
+      "parent_id": "1:103",
+      "x": 256,
+      "y": 648,
+      "width": 14,
+      "height": 38
+    },
+    "1:105": {
+      "id": "1:105",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:103",
+      "x": 265,
+      "y": 663,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:106": {
+      "id": "1:106",
+      "name": "Group 27",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 296,
+      "y": 172,
+      "width": 212,
+      "height": 152
+    },
+    "1:107": {
+      "id": "1:107",
+      "name": "Rectangle 22",
+      "type": "RECTANGLE",
+      "parent_id": "1:106",
+      "x": 296,
+      "y": 172,
+      "width": 212,
+      "height": 152
+    },
+    "1:108": {
+      "id": "1:108",
+      "name": "Rectangle 27",
+      "type": "RECTANGLE",
+      "parent_id": "1:106",
+      "x": 296,
+      "y": 172,
+      "width": 212,
+      "height": 125
+    },
+    "1:109": {
+      "id": "1:109",
+      "name": "Inventory Status",
+      "type": "TEXT",
+      "parent_id": "1:106",
+      "x": 345,
+      "y": 261,
+      "width": 115,
+      "height": 22,
+      "text": "Inventory Status"
+    },
+    "1:110": {
+      "id": "1:110",
+      "name": "Good",
+      "type": "TEXT",
+      "parent_id": "1:106",
+      "x": 375,
+      "y": 231,
+      "width": 55,
+      "height": 22,
+      "text": "Good"
+    },
+    "1:111": {
+      "id": "1:111",
+      "name": "health_and_safety_black_24dp 1",
+      "type": "FRAME",
+      "parent_id": "1:106",
+      "x": 384,
+      "y": 188,
+      "width": 37,
+      "height": 37
+    },
+    "1:112": {
+      "id": "1:112",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:111",
+      "x": 0,
+      "y": 0,
+      "width": 37,
+      "height": 37
+    },
+    "1:113": {
+      "id": "1:113",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:111",
+      "x": 6.166667461395264,
+      "y": 3.083333730697632,
+      "width": 24.66666030883789,
+      "height": 30.83333396911621
+    },
+    "1:114": {
+      "id": "1:114",
+      "name": "Group 23",
+      "type": "GROUP",
+      "parent_id": "1:106",
+      "x": 331,
+      "y": 301,
+      "width": 142.71409606933594,
+      "height": 16
+    },
+    "1:115": {
+      "id": "1:115",
+      "name": "View Detailed Report",
+      "type": "TEXT",
+      "parent_id": "1:114",
+      "x": 331,
+      "y": 301,
+      "width": 124,
+      "height": 16,
+      "text": "View Detailed Report"
+    },
+    "1:116": {
+      "id": "1:116",
+      "name": "Group 22",
+      "type": "GROUP",
+      "parent_id": "1:114",
+      "x": 465,
+      "y": 306,
+      "width": 8.714094161987305,
+      "height": 8
+    },
+    "1:117": {
+      "id": "1:117",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:116",
+      "x": 465.0000003496911,
+      "y": 314,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:118": {
+      "id": "1:118",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:116",
+      "x": 469.00000047683716,
+      "y": 314,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:119": {
+      "id": "1:119",
+      "name": "Group 31",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 296,
+      "y": 394,
+      "width": 456,
+      "height": 140
+    },
+    "1:120": {
+      "id": "1:120",
+      "name": "Rectangle 22",
+      "type": "RECTANGLE",
+      "parent_id": "1:119",
+      "x": 296,
+      "y": 394,
+      "width": 456,
+      "height": 140
+    },
+    "1:121": {
+      "id": "1:121",
+      "name": "Group 23",
+      "type": "GROUP",
+      "parent_id": "1:119",
+      "x": 593,
+      "y": 410,
+      "width": 137.71409606933594,
+      "height": 14
+    },
+    "1:122": {
+      "id": "1:122",
+      "name": "Go to Configuration",
+      "type": "TEXT",
+      "parent_id": "1:121",
+      "x": 593,
+      "y": 410,
+      "width": 119,
+      "height": 14,
+      "text": "Go to Configuration"
+    },
+    "1:123": {
+      "id": "1:123",
+      "name": "Group 22",
+      "type": "GROUP",
+      "parent_id": "1:121",
+      "x": 722,
+      "y": 415,
+      "width": 8.714094161987305,
+      "height": 8
+    },
+    "1:124": {
+      "id": "1:124",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:123",
+      "x": 722.0000003496912,
+      "y": 423,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:125": {
+      "id": "1:125",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:123",
+      "x": 726.0000004768372,
+      "y": 423,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:126": {
+      "id": "1:126",
+      "name": "Line 5",
+      "type": "LINE",
+      "parent_id": "1:119",
+      "x": 296,
+      "y": 441,
+      "width": 456,
+      "height": 0
+    },
+    "1:127": {
+      "id": "1:127",
+      "name": "Inventory",
+      "type": "TEXT",
+      "parent_id": "1:119",
+      "x": 326,
+      "y": 407,
+      "width": 78,
+      "height": 22,
+      "text": "Inventory"
+    },
+    "1:128": {
+      "id": "1:128",
+      "name": "Total no of Medicines",
+      "type": "TEXT",
+      "parent_id": "1:119",
+      "x": 326,
+      "y": 492,
+      "width": 150,
+      "height": 22,
+      "text": "Total no of Medicines"
+    },
+    "1:129": {
+      "id": "1:129",
+      "name": "298",
+      "type": "TEXT",
+      "parent_id": "1:119",
+      "x": 326,
+      "y": 461,
+      "width": 37,
+      "height": 22,
+      "text": "298"
+    },
+    "1:130": {
+      "id": "1:130",
+      "name": "24",
+      "type": "TEXT",
+      "parent_id": "1:119",
+      "x": 560,
+      "y": 461,
+      "width": 25,
+      "height": 22,
+      "text": "24"
+    },
+    "1:131": {
+      "id": "1:131",
+      "name": "Medicine Groups",
+      "type": "TEXT",
+      "parent_id": "1:119",
+      "x": 560,
+      "y": 492,
+      "width": 119,
+      "height": 22,
+      "text": "Medicine Groups"
+    },
+    "1:132": {
+      "id": "1:132",
+      "name": "Group 33",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 296,
+      "y": 560,
+      "width": 456,
+      "height": 140
+    },
+    "1:133": {
+      "id": "1:133",
+      "name": "Rectangle 22",
+      "type": "RECTANGLE",
+      "parent_id": "1:132",
+      "x": 296,
+      "y": 560,
+      "width": 456,
+      "height": 140
+    },
+    "1:134": {
+      "id": "1:134",
+      "name": "Group 23",
+      "type": "GROUP",
+      "parent_id": "1:132",
+      "x": 565,
+      "y": 576,
+      "width": 165.71409606933594,
+      "height": 19
+    },
+    "1:135": {
+      "id": "1:135",
+      "name": "Go to User Management",
+      "type": "TEXT",
+      "parent_id": "1:134",
+      "x": 565,
+      "y": 576,
+      "width": 147,
+      "height": 19,
+      "text": "Go to User Management"
+    },
+    "1:136": {
+      "id": "1:136",
+      "name": "Group 22",
+      "type": "GROUP",
+      "parent_id": "1:134",
+      "x": 722,
+      "y": 581,
+      "width": 8.714094161987305,
+      "height": 8
+    },
+    "1:137": {
+      "id": "1:137",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:136",
+      "x": 722.0000003496912,
+      "y": 589,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:138": {
+      "id": "1:138",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:136",
+      "x": 726.0000004768372,
+      "y": 589,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:139": {
+      "id": "1:139",
+      "name": "Line 5",
+      "type": "LINE",
+      "parent_id": "1:132",
+      "x": 296,
+      "y": 607,
+      "width": 456,
+      "height": 0
+    },
+    "1:140": {
+      "id": "1:140",
+      "name": "My Pharmacy",
+      "type": "TEXT",
+      "parent_id": "1:132",
+      "x": 326,
+      "y": 573,
+      "width": 113,
+      "height": 22,
+      "text": "My Pharmacy"
+    },
+    "1:141": {
+      "id": "1:141",
+      "name": "Total no of Suppliers",
+      "type": "TEXT",
+      "parent_id": "1:132",
+      "x": 326,
+      "y": 658,
+      "width": 144,
+      "height": 22,
+      "text": "Total no of Suppliers"
+    },
+    "1:142": {
+      "id": "1:142",
+      "name": "04",
+      "type": "TEXT",
+      "parent_id": "1:132",
+      "x": 326,
+      "y": 627,
+      "width": 27,
+      "height": 22,
+      "text": "04"
+    },
+    "1:143": {
+      "id": "1:143",
+      "name": "05",
+      "type": "TEXT",
+      "parent_id": "1:132",
+      "x": 560,
+      "y": 627,
+      "width": 27,
+      "height": 22,
+      "text": "05"
+    },
+    "1:144": {
+      "id": "1:144",
+      "name": "Total no of Users",
+      "type": "TEXT",
+      "parent_id": "1:132",
+      "x": 560,
+      "y": 658,
+      "width": 117,
+      "height": 22,
+      "text": "Total no of Users"
+    },
+    "1:145": {
+      "id": "1:145",
+      "name": "Group 32",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 784,
+      "y": 394,
+      "width": 456,
+      "height": 140
+    },
+    "1:146": {
+      "id": "1:146",
+      "name": "Rectangle 22",
+      "type": "RECTANGLE",
+      "parent_id": "1:145",
+      "x": 784,
+      "y": 394,
+      "width": 456,
+      "height": 140
+    },
+    "1:147": {
+      "id": "1:147",
+      "name": "Group 23",
+      "type": "GROUP",
+      "parent_id": "1:145",
+      "x": 1119,
+      "y": 410,
+      "width": 100,
+      "height": 22
+    },
+    "1:148": {
+      "id": "1:148",
+      "name": "January 2022",
+      "type": "TEXT",
+      "parent_id": "1:147",
+      "x": 1119,
+      "y": 410,
+      "width": 81,
+      "height": 22,
+      "text": "January 2022"
+    },
+    "1:149": {
+      "id": "1:149",
+      "name": "Group 22",
+      "type": "GROUP",
+      "parent_id": "1:147",
+      "x": 1211,
+      "y": 416,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:150": {
+      "id": "1:150",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:149",
+      "x": 1211,
+      "y": 416,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:151": {
+      "id": "1:151",
+      "name": "Line 5",
+      "type": "LINE",
+      "parent_id": "1:145",
+      "x": 784,
+      "y": 441,
+      "width": 456,
+      "height": 0
+    },
+    "1:152": {
+      "id": "1:152",
+      "name": "Quick Report",
+      "type": "TEXT",
+      "parent_id": "1:145",
+      "x": 814,
+      "y": 407,
+      "width": 105,
+      "height": 22,
+      "text": "Quick Report"
+    },
+    "1:153": {
+      "id": "1:153",
+      "name": "Qty of Medicines Sold",
+      "type": "TEXT",
+      "parent_id": "1:145",
+      "x": 814,
+      "y": 492,
+      "width": 151,
+      "height": 22,
+      "text": "Qty of Medicines Sold"
+    },
+    "1:154": {
+      "id": "1:154",
+      "name": "70,856",
+      "type": "TEXT",
+      "parent_id": "1:145",
+      "x": 814,
+      "y": 461,
+      "width": 69,
+      "height": 22,
+      "text": "70,856"
+    },
+    "1:155": {
+      "id": "1:155",
+      "name": "5,288",
+      "type": "TEXT",
+      "parent_id": "1:145",
+      "x": 1048,
+      "y": 461,
+      "width": 57,
+      "height": 22,
+      "text": "5,288"
+    },
+    "1:156": {
+      "id": "1:156",
+      "name": "Invoices Generated",
+      "type": "TEXT",
+      "parent_id": "1:145",
+      "x": 1048,
+      "y": 492,
+      "width": 138,
+      "height": 22,
+      "text": "Invoices Generated"
+    },
+    "1:157": {
+      "id": "1:157",
+      "name": "Group 34",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 784,
+      "y": 560,
+      "width": 456,
+      "height": 140
+    },
+    "1:158": {
+      "id": "1:158",
+      "name": "Rectangle 22",
+      "type": "RECTANGLE",
+      "parent_id": "1:157",
+      "x": 784,
+      "y": 560,
+      "width": 456,
+      "height": 140
+    },
+    "1:159": {
+      "id": "1:159",
+      "name": "Group 23",
+      "type": "GROUP",
+      "parent_id": "1:157",
+      "x": 1053,
+      "y": 576,
+      "width": 165.71409606933594,
+      "height": 19
+    },
+    "1:160": {
+      "id": "1:160",
+      "name": "Group 23",
+      "type": "GROUP",
+      "parent_id": "1:159",
+      "x": 1053,
+      "y": 576,
+      "width": 165.71409606933594,
+      "height": 19
+    },
+    "1:161": {
+      "id": "1:161",
+      "name": "Go to Customers Page",
+      "type": "TEXT",
+      "parent_id": "1:160",
+      "x": 1053,
+      "y": 576,
+      "width": 147,
+      "height": 19,
+      "text": "Go to Customers Page"
+    },
+    "1:162": {
+      "id": "1:162",
+      "name": "Group 22",
+      "type": "GROUP",
+      "parent_id": "1:160",
+      "x": 1210,
+      "y": 581,
+      "width": 8.714094161987305,
+      "height": 8
+    },
+    "1:163": {
+      "id": "1:163",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:162",
+      "x": 1210.0000003496912,
+      "y": 589,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:164": {
+      "id": "1:164",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:162",
+      "x": 1214.0000004768372,
+      "y": 589,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:165": {
+      "id": "1:165",
+      "name": "Line 5",
+      "type": "LINE",
+      "parent_id": "1:157",
+      "x": 784,
+      "y": 607,
+      "width": 456,
+      "height": 0
+    },
+    "1:166": {
+      "id": "1:166",
+      "name": "Customers",
+      "type": "TEXT",
+      "parent_id": "1:157",
+      "x": 814,
+      "y": 573,
+      "width": 90,
+      "height": 22,
+      "text": "Customers"
+    },
+    "1:167": {
+      "id": "1:167",
+      "name": "Total no of Customers",
+      "type": "TEXT",
+      "parent_id": "1:157",
+      "x": 814,
+      "y": 658,
+      "width": 156,
+      "height": 22,
+      "text": "Total no of Customers"
+    },
+    "1:168": {
+      "id": "1:168",
+      "name": "845",
+      "type": "TEXT",
+      "parent_id": "1:157",
+      "x": 814,
+      "y": 627,
+      "width": 40,
+      "height": 22,
+      "text": "845"
+    },
+    "1:169": {
+      "id": "1:169",
+      "name": "Adalimumab",
+      "type": "TEXT",
+      "parent_id": "1:157",
+      "x": 1048,
+      "y": 627,
+      "width": 137,
+      "height": 22,
+      "text": "Adalimumab"
+    },
+    "1:170": {
+      "id": "1:170",
+      "name": "Frequently bought Item",
+      "type": "TEXT",
+      "parent_id": "1:157",
+      "x": 1048,
+      "y": 658,
+      "width": 166,
+      "height": 22,
+      "text": "Frequently bought Item"
+    },
+    "1:171": {
+      "id": "1:171",
+      "name": "Group 28",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 540,
+      "y": 172,
+      "width": 212,
+      "height": 152
+    },
+    "1:172": {
+      "id": "1:172",
+      "name": "Rectangle 23",
+      "type": "RECTANGLE",
+      "parent_id": "1:171",
+      "x": 540,
+      "y": 172,
+      "width": 212,
+      "height": 152
+    },
+    "1:173": {
+      "id": "1:173",
+      "name": "Rectangle 28",
+      "type": "RECTANGLE",
+      "parent_id": "1:171",
+      "x": 540,
+      "y": 172,
+      "width": 212,
+      "height": 125
+    },
+    "1:174": {
+      "id": "1:174",
+      "name": "payments_black_24dp 1",
+      "type": "FRAME",
+      "parent_id": "1:171",
+      "x": 628,
+      "y": 188,
+      "width": 37,
+      "height": 37
+    },
+    "1:175": {
+      "id": "1:175",
+      "name": "Group",
+      "type": "GROUP",
+      "parent_id": "1:174",
+      "x": 0,
+      "y": 0,
+      "width": 37,
+      "height": 37
+    },
+    "1:176": {
+      "id": "1:176",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:175",
+      "x": 0,
+      "y": 0,
+      "width": 37,
+      "height": 37
+    },
+    "1:177": {
+      "id": "1:177",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:175",
+      "x": 1.5416667461395264,
+      "y": 6.1666669845581055,
+      "width": 33.916664123535156,
+      "height": 24.666664123535156
+    },
+    "1:178": {
+      "id": "1:178",
+      "name": "Group 36",
+      "type": "GROUP",
+      "parent_id": "1:171",
+      "x": 571,
+      "y": 261,
+      "width": 150,
+      "height": 22
+    },
+    "1:179": {
+      "id": "1:179",
+      "name": "Revenue :",
+      "type": "TEXT",
+      "parent_id": "1:178",
+      "x": 571,
+      "y": 261,
+      "width": 69,
+      "height": 22,
+      "text": "Revenue :"
+    },
+    "1:180": {
+      "id": "1:180",
+      "name": "Group 23",
+      "type": "GROUP",
+      "parent_id": "1:178",
+      "x": 647,
+      "y": 263,
+      "width": 74,
+      "height": 18
+    },
+    "1:181": {
+      "id": "1:181",
+      "name": "Jan 2022",
+      "type": "TEXT",
+      "parent_id": "1:180",
+      "x": 647,
+      "y": 263,
+      "width": 55,
+      "height": 18,
+      "text": "Jan 2022"
+    },
+    "1:182": {
+      "id": "1:182",
+      "name": "Group 22",
+      "type": "GROUP",
+      "parent_id": "1:180",
+      "x": 713,
+      "y": 269,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:183": {
+      "id": "1:183",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:182",
+      "x": 713,
+      "y": 269,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:184": {
+      "id": "1:184",
+      "name": "Rs. 8,55,875",
+      "type": "TEXT",
+      "parent_id": "1:171",
+      "x": 585,
+      "y": 231,
+      "width": 122,
+      "height": 22,
+      "text": "Rs. 8,55,875"
+    },
+    "1:185": {
+      "id": "1:185",
+      "name": "Group 24",
+      "type": "GROUP",
+      "parent_id": "1:171",
+      "x": 575,
+      "y": 301,
+      "width": 142.71409606933594,
+      "height": 16
+    },
+    "1:186": {
+      "id": "1:186",
+      "name": "View Detailed Report",
+      "type": "TEXT",
+      "parent_id": "1:185",
+      "x": 575,
+      "y": 301,
+      "width": 124,
+      "height": 16,
+      "text": "View Detailed Report"
+    },
+    "1:187": {
+      "id": "1:187",
+      "name": "Group 22",
+      "type": "GROUP",
+      "parent_id": "1:185",
+      "x": 709,
+      "y": 306,
+      "width": 8.714094161987305,
+      "height": 8
+    },
+    "1:188": {
+      "id": "1:188",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:187",
+      "x": 709.0000003496912,
+      "y": 314,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:189": {
+      "id": "1:189",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:187",
+      "x": 713.0000004768372,
+      "y": 314,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:190": {
+      "id": "1:190",
+      "name": "Group 29",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 784,
+      "y": 172,
+      "width": 212,
+      "height": 152
+    },
+    "1:191": {
+      "id": "1:191",
+      "name": "Rectangle 24",
+      "type": "RECTANGLE",
+      "parent_id": "1:190",
+      "x": 784,
+      "y": 172,
+      "width": 212,
+      "height": 152
+    },
+    "1:192": {
+      "id": "1:192",
+      "name": "Rectangle 29",
+      "type": "RECTANGLE",
+      "parent_id": "1:190",
+      "x": 784,
+      "y": 172,
+      "width": 212,
+      "height": 125
+    },
+    "1:193": {
+      "id": "1:193",
+      "name": "Medicines Available",
+      "type": "TEXT",
+      "parent_id": "1:190",
+      "x": 819,
+      "y": 261,
+      "width": 142,
+      "height": 22,
+      "text": "Medicines Available"
+    },
+    "1:194": {
+      "id": "1:194",
+      "name": "298",
+      "type": "TEXT",
+      "parent_id": "1:190",
+      "x": 872,
+      "y": 231,
+      "width": 37,
+      "height": 22,
+      "text": "298"
+    },
+    "1:195": {
+      "id": "1:195",
+      "name": "Group 25",
+      "type": "GROUP",
+      "parent_id": "1:190",
+      "x": 837,
+      "y": 301,
+      "width": 106.71409606933594,
+      "height": 16
+    },
+    "1:196": {
+      "id": "1:196",
+      "name": "Visit Inventory",
+      "type": "TEXT",
+      "parent_id": "1:195",
+      "x": 837,
+      "y": 301,
+      "width": 88,
+      "height": 16,
+      "text": "Visit Inventory"
+    },
+    "1:197": {
+      "id": "1:197",
+      "name": "Group 22",
+      "type": "GROUP",
+      "parent_id": "1:195",
+      "x": 935,
+      "y": 306,
+      "width": 8.714094161987305,
+      "height": 8
+    },
+    "1:198": {
+      "id": "1:198",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:197",
+      "x": 935.0000003496912,
+      "y": 314,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:199": {
+      "id": "1:199",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:197",
+      "x": 939.0000004768372,
+      "y": 314,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:200": {
+      "id": "1:200",
+      "name": "medical_services_black_24dp 2",
+      "type": "FRAME",
+      "parent_id": "1:190",
+      "x": 872,
+      "y": 188,
+      "width": 37,
+      "height": 37
+    },
+    "1:201": {
+      "id": "1:201",
+      "name": "Group",
+      "type": "GROUP",
+      "parent_id": "1:200",
+      "x": 0,
+      "y": 0,
+      "width": 37,
+      "height": 37
+    },
+    "1:202": {
+      "id": "1:202",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:201",
+      "x": 0,
+      "y": 0,
+      "width": 37,
+      "height": 37
+    },
+    "1:203": {
+      "id": "1:203",
+      "name": "Group",
+      "type": "GROUP",
+      "parent_id": "1:200",
+      "x": 3.0833334922790527,
+      "y": 3.0833334922790527,
+      "width": 30.83333396911621,
+      "height": 30.83333396911621
+    },
+    "1:204": {
+      "id": "1:204",
+      "name": "Group",
+      "type": "GROUP",
+      "parent_id": "1:203",
+      "x": 3.0833334922790527,
+      "y": 3.0833334922790527,
+      "width": 30.83333396911621,
+      "height": 30.83333396911621
+    },
+    "1:205": {
+      "id": "1:205",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:204",
+      "x": 3.0833334922790527,
+      "y": 3.0833334922790527,
+      "width": 30.83333396911621,
+      "height": 30.83333396911621
+    },
+    "1:206": {
+      "id": "1:206",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:204",
+      "x": 12.333333492279053,
+      "y": 15.41666555404663,
+      "width": 12.333333969116211,
+      "height": 12.333333969116211
+    },
+    "1:207": {
+      "id": "1:207",
+      "name": "Group 30",
+      "type": "GROUP",
+      "parent_id": "1:3",
+      "x": 1028,
+      "y": 172,
+      "width": 212,
+      "height": 152
+    },
+    "1:208": {
+      "id": "1:208",
+      "name": "Rectangle 25",
+      "type": "RECTANGLE",
+      "parent_id": "1:207",
+      "x": 1028,
+      "y": 172,
+      "width": 212,
+      "height": 152
+    },
+    "1:209": {
+      "id": "1:209",
+      "name": "Rectangle 30",
+      "type": "RECTANGLE",
+      "parent_id": "1:207",
+      "x": 1028,
+      "y": 172,
+      "width": 212,
+      "height": 125
+    },
+    "1:210": {
+      "id": "1:210",
+      "name": "Medicine Shortage",
+      "type": "TEXT",
+      "parent_id": "1:207",
+      "x": 1068,
+      "y": 261,
+      "width": 133,
+      "height": 22,
+      "text": "Medicine Shortage"
+    },
+    "1:211": {
+      "id": "1:211",
+      "name": "01",
+      "type": "TEXT",
+      "parent_id": "1:207",
+      "x": 1124,
+      "y": 231,
+      "width": 21,
+      "height": 22,
+      "text": "01"
+    },
+    "1:212": {
+      "id": "1:212",
+      "name": "Group 26",
+      "type": "GROUP",
+      "parent_id": "1:207",
+      "x": 1087,
+      "y": 301,
+      "width": 93.71409606933594,
+      "height": 16
+    },
+    "1:213": {
+      "id": "1:213",
+      "name": "Resolve Now",
+      "type": "TEXT",
+      "parent_id": "1:212",
+      "x": 1087,
+      "y": 301,
+      "width": 75,
+      "height": 16,
+      "text": "Resolve Now"
+    },
+    "1:214": {
+      "id": "1:214",
+      "name": "Group 22",
+      "type": "GROUP",
+      "parent_id": "1:212",
+      "x": 1172,
+      "y": 306,
+      "width": 8.714094161987305,
+      "height": 8
+    },
+    "1:215": {
+      "id": "1:215",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:214",
+      "x": 1172.0000003496912,
+      "y": 314,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:216": {
+      "id": "1:216",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:214",
+      "x": 1176.0000004768372,
+      "y": 314,
+      "width": 8,
+      "height": 4.714094161987305
+    },
+    "1:217": {
+      "id": "1:217",
+      "name": "warning_amber_black_24dp 1",
+      "type": "FRAME",
+      "parent_id": "1:207",
+      "x": 1116,
+      "y": 188,
+      "width": 37,
+      "height": 37
+    },
+    "1:218": {
+      "id": "1:218",
+      "name": "Vector",
+      "type": "VECTOR",
+      "parent_id": "1:217",
+      "x": 1.5416667461395264,
+      "y": 3.0833334922790527,
+      "width": 33.916664123535156,
+      "height": 29.29166603088379
+    }
+  },
+  "children": {
+    "0:1": [
+      "1:3"
+    ],
+    "1:3": [
+      "1:4",
+      "1:5",
+      "1:8",
+      "1:9",
+      "1:10",
+      "1:11",
+      "1:12",
+      "1:16",
+      "1:20",
+      "1:29",
+      "1:36",
+      "1:40",
+      "1:44",
+      "1:48",
+      "1:52",
+      "1:57",
+      "1:64",
+      "1:68",
+      "1:69",
+      "1:72",
+      "1:73",
+      "1:82",
+      "1:83",
+      "1:84",
+      "1:85",
+      "1:89",
+      "1:96",
+      "1:103",
+      "1:106",
+      "1:119",
+      "1:132",
+      "1:145",
+      "1:157",
+      "1:171",
+      "1:190",
+      "1:207"
+    ],
+    "1:4": [],
+    "1:5": [
+      "1:6",
+      "1:7"
+    ],
+    "1:6": [],
+    "1:7": [],
+    "1:8": [],
+    "1:9": [],
+    "1:10": [],
+    "1:11": [],
+    "1:12": [
+      "1:13",
+      "1:14",
+      "1:15"
+    ],
+    "1:13": [],
+    "1:14": [],
+    "1:15": [],
+    "1:16": [
+      "1:17",
+      "1:18",
+      "1:19"
+    ],
+    "1:17": [],
+    "1:18": [],
+    "1:19": [],
+    "1:20": [
+      "1:21",
+      "1:22",
+      "1:23",
+      "1:24"
+    ],
+    "1:21": [],
+    "1:22": [],
+    "1:23": [],
+    "1:24": [
+      "1:25"
+    ],
+    "1:25": [
+      "1:26",
+      "1:27",
+      "1:28"
+    ],
+    "1:26": [],
+    "1:27": [],
+    "1:28": [],
+    "1:29": [
+      "1:30",
+      "1:31",
+      "1:32",
+      "1:33"
+    ],
+    "1:30": [],
+    "1:31": [],
+    "1:32": [],
+    "1:33": [
+      "1:34"
+    ],
+    "1:34": [
+      "1:35"
+    ],
+    "1:35": [],
+    "1:36": [
+      "1:37",
+      "1:38",
+      "1:39"
+    ],
+    "1:37": [],
+    "1:38": [],
+    "1:39": [],
+    "1:40": [
+      "1:41",
+      "1:42",
+      "1:43"
+    ],
+    "1:41": [],
+    "1:42": [],
+    "1:43": [],
+    "1:44": [
+      "1:45",
+      "1:46",
+      "1:47"
+    ],
+    "1:45": [],
+    "1:46": [],
+    "1:47": [],
+    "1:48": [
+      "1:49",
+      "1:50",
+      "1:51"
+    ],
+    "1:49": [],
+    "1:50": [],
+    "1:51": [],
+    "1:52": [
+      "1:53",
+      "1:54",
+      "1:55",
+      "1:56"
+    ],
+    "1:53": [],
+    "1:54": [],
+    "1:55": [],
+    "1:56": [],
+    "1:57": [
+      "1:58",
+      "1:59",
+      "1:60",
+      "1:61"
+    ],
+    "1:58": [],
+    "1:59": [],
+    "1:60": [],
+    "1:61": [
+      "1:62",
+      "1:63"
+    ],
+    "1:62": [],
+    "1:63": [],
+    "1:64": [
+      "1:65",
+      "1:66",
+      "1:67"
+    ],
+    "1:65": [],
+    "1:66": [],
+    "1:67": [],
+    "1:68": [],
+    "1:69": [
+      "1:70",
+      "1:71"
+    ],
+    "1:70": [],
+    "1:71": [],
+    "1:72": [],
+    "1:73": [
+      "1:74",
+      "1:75",
+      "1:76",
+      "1:80",
+      "1:81"
+    ],
+    "1:74": [],
+    "1:75": [],
+    "1:76": [
+      "1:77",
+      "1:78",
+      "1:79"
+    ],
+    "1:77": [],
+    "1:78": [],
+    "1:79": [],
+    "1:80": [],
+    "1:81": [],
+    "1:82": [],
+    "1:83": [],
+    "1:84": [],
+    "1:85": [
+      "1:86",
+      "1:87",
+      "1:88"
+    ],
+    "1:86": [],
+    "1:87": [],
+    "1:88": [],
+    "1:89": [
+      "1:90",
+      "1:91",
+      "1:95"
+    ],
+    "1:90": [],
+    "1:91": [
+      "1:92",
+      "1:93",
+      "1:94"
+    ],
+    "1:92": [],
+    "1:93": [],
+    "1:94": [],
+    "1:95": [],
+    "1:96": [
+      "1:97",
+      "1:100"
+    ],
+    "1:97": [
+      "1:98",
+      "1:99"
+    ],
+    "1:98": [],
+    "1:99": [],
+    "1:100": [
+      "1:101",
+      "1:102"
+    ],
+    "1:101": [],
+    "1:102": [],
+    "1:103": [
+      "1:104",
+      "1:105"
+    ],
+    "1:104": [],
+    "1:105": [],
+    "1:106": [
+      "1:107",
+      "1:108",
+      "1:109",
+      "1:110",
+      "1:111",
+      "1:114"
+    ],
+    "1:107": [],
+    "1:108": [],
+    "1:109": [],
+    "1:110": [],
+    "1:111": [
+      "1:112",
+      "1:113"
+    ],
+    "1:112": [],
+    "1:113": [],
+    "1:114": [
+      "1:115",
+      "1:116"
+    ],
+    "1:115": [],
+    "1:116": [
+      "1:117",
+      "1:118"
+    ],
+    "1:117": [],
+    "1:118": [],
+    "1:119": [
+      "1:120",
+      "1:121",
+      "1:126",
+      "1:127",
+      "1:128",
+      "1:129",
+      "1:130",
+      "1:131"
+    ],
+    "1:120": [],
+    "1:121": [
+      "1:122",
+      "1:123"
+    ],
+    "1:122": [],
+    "1:123": [
+      "1:124",
+      "1:125"
+    ],
+    "1:124": [],
+    "1:125": [],
+    "1:126": [],
+    "1:127": [],
+    "1:128": [],
+    "1:129": [],
+    "1:130": [],
+    "1:131": [],
+    "1:132": [
+      "1:133",
+      "1:134",
+      "1:139",
+      "1:140",
+      "1:141",
+      "1:142",
+      "1:143",
+      "1:144"
+    ],
+    "1:133": [],
+    "1:134": [
+      "1:135",
+      "1:136"
+    ],
+    "1:135": [],
+    "1:136": [
+      "1:137",
+      "1:138"
+    ],
+    "1:137": [],
+    "1:138": [],
+    "1:139": [],
+    "1:140": [],
+    "1:141": [],
+    "1:142": [],
+    "1:143": [],
+    "1:144": [],
+    "1:145": [
+      "1:146",
+      "1:147",
+      "1:151",
+      "1:152",
+      "1:153",
+      "1:154",
+      "1:155",
+      "1:156"
+    ],
+    "1:146": [],
+    "1:147": [
+      "1:148",
+      "1:149"
+    ],
+    "1:148": [],
+    "1:149": [
+      "1:150"
+    ],
+    "1:150": [],
+    "1:151": [],
+    "1:152": [],
+    "1:153": [],
+    "1:154": [],
+    "1:155": [],
+    "1:156": [],
+    "1:157": [
+      "1:158",
+      "1:159",
+      "1:165",
+      "1:166",
+      "1:167",
+      "1:168",
+      "1:169",
+      "1:170"
+    ],
+    "1:158": [],
+    "1:159": [
+      "1:160"
+    ],
+    "1:160": [
+      "1:161",
+      "1:162"
+    ],
+    "1:161": [],
+    "1:162": [
+      "1:163",
+      "1:164"
+    ],
+    "1:163": [],
+    "1:164": [],
+    "1:165": [],
+    "1:166": [],
+    "1:167": [],
+    "1:168": [],
+    "1:169": [],
+    "1:170": [],
+    "1:171": [
+      "1:172",
+      "1:173",
+      "1:174",
+      "1:178",
+      "1:184",
+      "1:185"
+    ],
+    "1:172": [],
+    "1:173": [],
+    "1:174": [
+      "1:175"
+    ],
+    "1:175": [
+      "1:176",
+      "1:177"
+    ],
+    "1:176": [],
+    "1:177": [],
+    "1:178": [
+      "1:179",
+      "1:180"
+    ],
+    "1:179": [],
+    "1:180": [
+      "1:181",
+      "1:182"
+    ],
+    "1:181": [],
+    "1:182": [
+      "1:183"
+    ],
+    "1:183": [],
+    "1:184": [],
+    "1:185": [
+      "1:186",
+      "1:187"
+    ],
+    "1:186": [],
+    "1:187": [
+      "1:188",
+      "1:189"
+    ],
+    "1:188": [],
+    "1:189": [],
+    "1:190": [
+      "1:191",
+      "1:192",
+      "1:193",
+      "1:194",
+      "1:195",
+      "1:200"
+    ],
+    "1:191": [],
+    "1:192": [],
+    "1:193": [],
+    "1:194": [],
+    "1:195": [
+      "1:196",
+      "1:197"
+    ],
+    "1:196": [],
+    "1:197": [
+      "1:198",
+      "1:199"
+    ],
+    "1:198": [],
+    "1:199": [],
+    "1:200": [
+      "1:201",
+      "1:203"
+    ],
+    "1:201": [
+      "1:202"
+    ],
+    "1:202": [],
+    "1:203": [
+      "1:204"
+    ],
+    "1:204": [
+      "1:205",
+      "1:206"
+    ],
+    "1:205": [],
+    "1:206": [],
+    "1:207": [
+      "1:208",
+      "1:209",
+      "1:210",
+      "1:211",
+      "1:212",
+      "1:217"
+    ],
+    "1:208": [],
+    "1:209": [],
+    "1:210": [],
+    "1:211": [],
+    "1:212": [
+      "1:213",
+      "1:214"
+    ],
+    "1:213": [],
+    "1:214": [
+      "1:215",
+      "1:216"
+    ],
+    "1:215": [],
+    "1:216": [],
+    "1:217": [
+      "1:218"
+    ],
+    "1:218": []
+  }
+}

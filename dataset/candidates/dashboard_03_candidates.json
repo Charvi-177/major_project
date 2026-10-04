@@ -1,0 +1,35 @@
+{
+  "dashboard": "dashboard_03",
+  "candidate_count": 1,
+  "candidates": [
+    {
+      "candidate_id": "45:115",
+      "name": "Hospital Overview Section",
+      "type": "FRAME",
+      "parent_id": "1:2",
+      "x": 206,
+      "y": 711,
+      "width": 770,
+      "height": 133,
+      "area": 102410,
+      "aspect_ratio": 5.7894736842105265,
+      "child_count": 5,
+      "text_count": 0,
+      "numeric_text_count": 0,
+      "has_percentage": false,
+      "has_date_text": false,
+      "vector_count": 0,
+      "line_count": 0,
+      "ellipse_count": 0,
+      "rectangle_count": 0,
+      "graphical_count": 0,
+      "text_preview": [],
+      "dashboard": "dashboard_03",
+      "candidate_score": 7,
+      "has_chart_word": true,
+      "has_table_word": false,
+      "has_kpi_word": false,
+      "has_filter_word": false
+    }
+  ]
+}
