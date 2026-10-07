@@ -1,11 +1,61 @@
 dashboard_id,candidate_id,name,label
-dashboard_01,12:4,healthcare-dashboard,
-dashboard_02,42:16,Overview,
-dashboard_03,46:20,Medical Dashboard Design,
-dashboard_04,1:2,Medical Dashboard,
-dashboard_05,20:4841,Frame 606,
-dashboard_05,52:2618,Frame 1267,
-dashboard_06,1:2,Patient-Dashboard Overview Light Theme,
-dashboard_07,1:2,Additional Dashboard Components-Light Theme,
-dashboard_08,1:3,01 dashboard - landing page,
-dashboard_09,1:3,13 configurations,
+dashboard_01,12:54,kpi-card-total-patients,KPI_CARD
+dashboard_01,12:199,department-card,CHART
+dashboard_01,12:75,kpi-card-appointments-today,KPI_CARD
+dashboard_01,12:96,kpi-card-bed-occupancy-rate,KPI_CARD
+dashboard_01,12:249,demographics-card,CHART
+dashboard_01,12:117,kpi-card-revenue-this-month,KPI_CARD
+dashboard_01,12:293,table,TABLE
+dashboard_01,12:138,admissions-card,CHART
+dashboard_02,42:106,Total Doctor,KPI_CARD
+dashboard_02,42:119,Total Staff,KPI_CARD
+dashboard_02,42:135,Total Patient,KPI_CARD
+dashboard_02,42:147,New Appointment,KPI_CARD
+dashboard_02,42:160,Patient Overview,CHART
+dashboard_02,42:259,Appointment,OTHER
+dashboard_02,42:289,Patient Data,TABLE
+dashboard_03,29:9,Frame 11,KPI_CARD
+dashboard_03,32:10,Frame 12,KPI_CARD
+dashboard_03,40:62,Frame 18,KPI_CARD
+dashboard_03,40:69,Frame 19,KPI_CARD
+dashboard_03,32:40,Frame 13,KPI_CARD
+dashboard_03,35:80,Frame 14,KPI_CARD
+dashboard_03,45:114,Gender,CHART
+dashboard_03,45:113,Appointment,OTHER
+dashboard_04,1:17,Text input,KPI_CARD
+dashboard_04,1:24,Text input container,KPI_CARD
+dashboard_04,1:45,Card,CHART
+dashboard_04,1:124,Card,CHART
+dashboard_04,1:209,Table,CHART
+dashboard_04,1:382,Card,CHART
+dashboard_04,1:31,Text input container,KPI_CARD
+dashboard_04,1:38,Text input container,KPI_CARD
+dashboard_04,1:469,Table container,TABLE
+dashboard_05,52:2618,Frame 1267,TABLE
+dashboard_05,72:1474,Group 48125,CHART
+dashboard_05,42:1661,Group 406,CHART
+dashboard_06,1:754,Diagnostics,CHART
+dashboard_06,1:818,Patients,KPI_CARD
+dashboard_06,1:794,Health Index,KPI_CARD
+dashboard_06,1:899,Appointments,CHART
+dashboard_06,1:857,Causes Range,CHART
+dashboard_06,1:20,Covid19 Pandemic,CHART
+dashboard_06,1:1058,Doctors,CHART
+dashboard_07,1:5,Element-1,KPI_CARD
+dashboard_07,1:22,Element-2,KPI_CARD
+dashboard_07,1:29,Element-3,KPI_CARD
+dashboard_07,1:39,Element-4,KPI_CARD
+dashboard_07,1:46,Element-5,KPI_CARD
+dashboard_07,1:52,Element-6,CHART
+dashboard_07,1:60,Element-7,CHART
+dashboard_07,1:89,Element-8,CHART
+dashboard_07,1:110,Element-9,OTHER
+dashboard_07,1:409,Element-10,CHART
+dashboard_08,1:106,Group 27,KPI_CARD
+dashboard_08,1:171,Group 28,KPI_CARD
+dashboard_08,1:190,Group 29,KPI_CARD
+dashboard_08,1:207,Group 30,KPI_CARD
+dashboard_08,1:119,Group 31,KPI_CARD
+dashboard_08,1:145,Group 32,KPI_CARD
+dashboard_08,1:132,Group 33,KPI_CARD
+dashboard_08,1:157,Group 34,KPI_CARD
